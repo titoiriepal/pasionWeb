@@ -1,0 +1,24 @@
+{
+    "name": "titoiriepal/pasion_viviente_iriepal",
+    "description": "Proyecto para pagina web con SASS, PHP, MVC, Active Record...",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Titoiriepal\\PasionVivienteIriepal\\": "src/",
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models",
+            "Classes\\" : "./classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jesus Ramos Sanchez",
+            "email": "titoiriepal@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "phpmailer/phpmailer": "dev-master"
+    }
+}
