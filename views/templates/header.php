@@ -3,7 +3,20 @@
         <div class="title-header">
             <div class="box-header">
                 <pre><h1>IV  pasión<br>       viviente <br>           Iriépal</h1></pre>
-                <p><i class="fa-solid fa-bars menu-bars"></i></p>
+                <div class="menu-bars">
+                    <input type="checkbox">
+                    <i class="fa-solid fa-bars menu-bars"></i>
+                    <i class="fas fa-times"></i>
+                    <nav>
+                        <ul>
+                            <li><a href="#">noticias</a></li>
+                            <li><a href="#">galería</a></li>
+                            <li><a href="#">blog</a></li>
+                            <li><a href="#">elenco</a></li>
+                            <li><a href="#">ediciones anteriores</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
 
             <nav class="menu-principal">
@@ -14,14 +27,7 @@
                 <a href="#" class="boton">ediciones anteriores</a>
             </nav>
 
-            <nav class="redes-sociales">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            </nav>
-
+            <?php  include_once __DIR__ . '/redes_sociales.php'; ?>
         </div>
 
         
