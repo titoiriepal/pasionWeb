@@ -1,8 +1,11 @@
-<!-- Opción frame vertical deslizante -->
+
 
 <section class="noticias">
     <h2>Noticias</h2>
-    <div class="contenedor" id="noticias">
+
+<!-- Opción frame vertical deslizante -->
+
+<!--    <div class="contenedor" id="noticias">
     
     <div class="scrollWrapper" onMouseover="scrollspeed=0" onMouseout="scrollspeed=current">
         <div class="scrollTitle">Últimas Noticias</div>
@@ -34,8 +37,30 @@
     <br>
     <br>
     <br>
-    <br>
-</section>
+    <br>-->
+    <div class="contenedor contenedor-slider">
+
+        <ul id="lista-noticias"> 
+            
+            <li><p><strong>1</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, possimus sed! Est optio adipisci ducimus vitae eos deleniti suscipit in vel illum quasi. Harum, laudantium nesciunt! Natus deserunt consequuntur soluta.</p></li>
+            <li><p><strong>2</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem consequuntur necessitatibus eum laborum porro ullam, sapiente earum error quo, molestiae recusandae suscipit repudiandae quaerat inventore numquam mollitia! Vitae, tempora. Odit?</p></li>
+            <li><p><strong>3</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem consequuntur necessitatibus eum laborum porro ullam, sapiente earum error quo, molestiae recusandae suscipit repudiandae quaerat inventore numquam mollitia! Vitae, tempora. Odit?</p></li>
+            <li><p><strong>4</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem consequuntur necessitatibus eum laborum porro ullam, sapiente earum error quo, molestiae recusandae suscipit repudiandae quaerat inventore numquam mollitia! Vitae, tempora. Odit?</p></li>
+
+            <li><p><strong>5</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem consequuntur necessitatibus eum laborum porro ullam, sapiente earum error quo, molestiae recusandae suscipit repudiandae quaerat inventore numquam mollitia! Vitae, tempora. Odit?</p></li>
+            <li><p><strong>6</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem consequuntur necessitatibus eum laborum porro ullam, sapiente earum error quo, molestiae recusandae suscipit repudiandae quaerat inventore numquam mollitia! Vitae, tempora. Odit?</p></li>
+            <li><p><strong>7</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem consequuntur necessitatibus eum laborum porro ullam, sapiente earum error quo, molestiae recusandae suscipit repudiandae quaerat inventore numquam mollitia! Vitae, tempora. Odit?</p></li>
+            <li><p><strong>8</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem consequuntur necessitatibus eum laborum porro ullam, sapiente earum error quo, molestiae recusandae suscipit repudiandae quaerat inventore numquam mollitia! Vitae, tempora. Odit?</p></li> 
+
+            <li><p><strong>9</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem consequuntur necessitatibus eum laborum porro ullam, sapiente earum error quo, molestiae recusandae suscipit repudiandae quaerat inventore numquam mollitia! Vitae, tempora. Odit?</p></li>
+            <li><p><strong>10</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem consequuntur necessitatibus eum laborum porro ullam, sapiente earum error quo, molestiae recusandae suscipit repudiandae quaerat inventore numquam mollitia! Vitae, tempora. Odit?</p></li>
+            <li><p><strong>11</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem consequuntur necessitatibus eum laborum porro ullam, sapiente earum error quo, molestiae recusandae suscipit repudiandae quaerat inventore numquam mollitia! Vitae, tempora. Odit?</p></li>
+            <li><p><strong>12</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem consequuntur necessitatibus eum laborum porro ullam, sapiente earum error quo, molestiae recusandae suscipit repudiandae quaerat inventore numquam mollitia! Vitae, tempora. Odit?</p></li> 
+
+        </ul>
+    </div>
+
+</section> 
 
 
    
