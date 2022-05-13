@@ -9,7 +9,7 @@
                     <i class="fas fa-times"></i>
                     <nav>
                         <ul>
-                            <li><a href="#">noticias</a></li>
+                            <li><a href="#body">noticias</a></li>
                             <li><a href="#">galería</a></li>
                             <li><a href="#">blog</a></li>
                             <li><a href="#">elenco</a></li>

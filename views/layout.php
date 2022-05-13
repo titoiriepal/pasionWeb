@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Rancho&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="build/css/app.css">
 </head>
-<body>
+<body id="body">
 
     <?php echo $contenido; ?>
     <?php echo $script ?? ''; ?>
