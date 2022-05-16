@@ -10,7 +10,7 @@
                     <nav>
                         <ul>
                             <li><a href="#body">noticias</a></li>
-                            <li><a href="#">galería</a></li>
+                            <li><a href="#galeria">galería</a></li>
                             <li><a href="#">blog</a></li>
                             <li><a href="#">elenco</a></li>
                             <li><a href="#">ediciones anteriores</a></li>
@@ -24,8 +24,8 @@
     </div>
     <div class="barra">
         <nav class="menu-principal">
-            <a href="#" class="btn-menu">noticias</a>
-            <a href="#" class="btn-menu">galeria</a>
+            <a href="#body" class="btn-menu">noticias</a>
+            <a href="#galeria" class="btn-menu">galeria</a>
             <a href="#" class="btn-menu">blog</a>
             <a href="#" class="btn-menu">elenco</a>
             <a href="#" class="btn-menu">ediciones anteriores</a>
