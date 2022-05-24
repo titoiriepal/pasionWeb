@@ -11,6 +11,8 @@ $router = new Router();
 //Navegation
 
 $router->get('/', [NavController::class, 'index']);
+$router->get('/noticias', [NavController::class, 'noticias']);
+
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

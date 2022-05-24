@@ -13,4 +13,12 @@ class NavController{
         ]);
 
     }
+
+    public static function noticias (Router $router){
+
+        $router->render('nav/noticias', [
+            'title' => 'Noticias Pasión Iriépal'
+        ]);
+
+    }
 }

@@ -111,7 +111,7 @@
         
     </div>
     <div class="enlace">
-        <a href="#">Ver más</a>
+        <a href="/noticias" class="boton">Ver más</a>
 
     </div>
     
