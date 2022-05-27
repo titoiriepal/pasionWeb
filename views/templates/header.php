@@ -10,10 +10,12 @@
                     <nav>
                         <ul>
                             <li><a href="/noticias">noticias</a></li>
-                            <li><a href="#galeria">galería</a></li>
-                            <li><a href="#blogs">blog</a></li>
-                            <li><a href="#elenco-section">elenco</a></li>
-                            <li><a href="#edicionesAnteriores">ediciones anteriores</a></li>
+                            <li><a href="/galerias">galería</a></li>
+                            <li><a href="/blogs">blog</a></li>
+                            <li><a href="/elenco">elenco</a></li>
+                            <li><a href="/ediciones">ediciones anteriores</a></li>
+                            <li><a href="/auth/login">iniciar sesion</a></li>
+
                         </ul>
                     </nav>
                 </div>
@@ -25,10 +27,11 @@
     <div class="barra">
         <nav class="menu-principal">
             <a href="/noticias" class="btn-menu">noticias</a>
-            <a href="#galeria" class="btn-menu">galeria</a>
-            <a href="#blogs" class="btn-menu">blog</a>
-            <a href="#elenco-section" class="btn-menu">elenco</a>
-            <a href="#edicionesAnteriores" class="btn-menu">ediciones anteriores</a>
+            <a href="/galerias" class="btn-menu">galeria</a>
+            <a href="/blogs" class="btn-menu">blog</a>
+            <a href="/elenco" class="btn-menu">elenco</a>
+            <a href="/ediciones" class="btn-menu">ediciones anteriores</a>
+            <a href="/auth/login" class="btn-menu">Iniciar Sesion</a>
         </nav>
     </div>
 

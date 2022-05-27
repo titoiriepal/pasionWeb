@@ -1,5 +1,6 @@
 
-<h2>Desde noticias</h2>
+<h2>Desde Elenco</h2>
+
 
 
 <?php
