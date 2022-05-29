@@ -1,7 +1,11 @@
-<h2>Olvide mi Password</h2>
+<h2 class="encabezado_h2">Olvide mi Password</h2>
 <h4>Introduce tus datos para poder cambiar tu password</h4>
 
 <div class="contenedor">
+
+    <?php
+        include_once __DIR__ . '/../templates/alertas.php';
+    ?>
     <form action="/auth/olvide" class="formulario" method="POST">
     <div class="campo">
         <label for="email">Email:</label>

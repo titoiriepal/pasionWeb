@@ -37,7 +37,17 @@
 
         
         
+<?php
+if (!(empty($_SESSION))):
+
+?>
+    <div class="div-sesion">
+        <h4 class="saludo">Hola, <?php echo $_SESSION['nombre'] ?></h4>
+        <a href="/auth/logout" class="boton">Cerrar sesion</a>
+    </div>
     
+
+<?php endif ?>
 
         
 

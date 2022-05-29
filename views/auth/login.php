@@ -1,9 +1,14 @@
 
-<h2>Iniciar Sesión</h2>
+<h2 class="encabezado_h2">Iniciar Sesión</h2>
 
 <h4>Inicia Sesión con tus datos</h4>
 
 <div class="contenedor">
+
+<?php
+    include_once __DIR__ . '/../templates/alertas.php';
+?>
+
 <form action="/auth/login" class="formulario" method="POST">
     <div class="campo">
         <label for="email">Email:</label>
@@ -11,7 +16,8 @@
             type="email"
             id="email"
             placeholder="Tu email"
-            name="mail"
+            name="email"
+            value="<?php echo s($auth->email); ?>"
 
         />
     </div>

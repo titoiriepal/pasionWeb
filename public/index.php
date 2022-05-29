@@ -27,7 +27,16 @@ $router->get('/auth/crear-cuenta', [LoginController::class, 'crear']);
 $router->post('/auth/crear-cuenta', [LoginController::class, 'crear']);
 $router->get('/auth/olvide', [LoginController::class, 'olvide']);
 $router->post('/auth/olvide', [LoginController::class, 'olvide']);
+$router->get('/auth/logout', [LoginController::class, 'logout']);
 
+
+//Confirmar cuenta y recuperar password
+
+$router->get('/auth/confirmar-cuenta', [LoginController::class, 'confirmar']);
+$router->get('/auth/mensaje', [LoginController::class, 'mensaje']);
+$router->get('/auth/mensaje-password', [LoginController::class, 'mensajePassword']);
+$router->get('/auth/recuperar', [LoginController::class, 'recuperar']);
+$router->post('/auth/recuperar', [LoginController::class, 'recuperar']);
 
 
 
