@@ -42,16 +42,10 @@ class LoginController{
                             $_SESSION['id'] = $usuario->id;
                             $_SESSION['nombre'] = $usuario->nombre . " " . $usuario->apellidos;
                             $_SESSION['email'] = $usuario->email;
+                            $_SESSION['admin'] = $usuario->admin;
+                            $_SESSION['blog'] = $usuario->blog;
+                            $_SESSION['fotografo'] = $usuario->fotografo;
                             $_SESSION['login'] = true;
-                            if($usuario->admin === '1'){
-                                $_SESSION['admin'] = true;
-                            }
-                            if($usuario->blog === '1'){
-                                $_SESSION['blog'] = true;
-                            }
-                            if($usuario->fotografo === '1'){
-                                $_SESSION['fotografo'] = true;
-                            }
                             header('Location: /');
                         }
                         
