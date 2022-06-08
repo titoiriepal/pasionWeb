@@ -66,7 +66,8 @@ class Usuario extends ActiveRecord{
         return self::$alertas;
     }
 
-
+    //Validaciones
+    
     public function validarLogin(){
         if(!$this->email){
             self::$alertas['error'][] = 'Debes introducir un email de usuario';

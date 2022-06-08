@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../includes/app.php';
 
 use Controllers\AdminController;
+use Controllers\ApiController;
 use Controllers\LoginController;
 use Controllers\NavController;
 use MVC\Router;
@@ -42,11 +43,20 @@ $router = new Router();
 
     $router->get('/admin', [AdminController::class, 'admin']);
     $router->get('/admin/usuarios', [AdminController::class, 'usuarios']);
+    $router->get('/admin/usuarios/eliminar', [AdminController::class, 'eliminarUsuario']);
+    $router->get('/admin/usuarios/actualizar', [AdminController::class, 'actualizarUsuario']);
+    $router->post('/admin/usuarios/actualizar', [AdminController::class, 'actualizarUsuario']);
     $router->get('/admin/noticias', [AdminController::class, 'noticias']);
     $router->get('/admin/galerias', [AdminController::class, 'galerias']);
     $router->get('/admin/blogs', [AdminController::class, 'blogs']);
     $router->get('/admin/elenco', [AdminController::class, 'elenco']);
     $router->get('/admin/anteriores', [AdminController::class, 'anteriores']);
+
+
+//API de USUARIOS
+
+    $router->get('/admin/api/usuarios', [ApiController::class, 'getUsuarios']);
+    $router->post('/admin/api/buscaUsuarios', [ApiController::class, 'findUsuarios']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

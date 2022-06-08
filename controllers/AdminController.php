@@ -22,81 +22,76 @@ class AdminController{
 
     public static function usuarios(Router $router){
 
-        $imprUsuarios = [];
-
-        $type = $_GET['type'];
-        $page = $_GET['page'];
-
-        //Número de usuarios que se mostraran por cada página
-        $usuariosPagina = 25;
-
-        //Primer usuario a mostrar
-        $usuarioInicial = (intval($page) - 1) * $usuariosPagina;
+        isAdmin();
 
         
-        //Control del tipo de usuarios a mostrar
-
-        switch($type){
-            case "all":
-                $usuarios = Usuario::all();
-                break;
-            case "admin":
-                $usuarios = Usuario::arrayWhere("admin", "1"); 
-                break;
-            case "blog":
-                $usuarios = Usuario::arrayWhere("blog", "1");
-                break;
-            case "foto":
-                $usuarios = Usuario::arrayWhere("fotografo", "1");
-                break;
-            case "rest":
-                $usuarios = Usuario::arrayWhere("restringido", "1"); 
-                break;
-            default:
-                header('Location:/admin');
-        }
-
-        //Número de páginas a mostrar. Si el número de página es mayor que el de páginas totales, redireccionamos a admin
-        if(count($usuarios)%$usuariosPagina != 0){
-            $paginasTotales = intval(count($usuarios)/$usuariosPagina) + 1;
-        }else{
-            $paginasTotales = intval(count($usuarios)/$usuariosPagina);
-        }
-
-        
-    
-        if (intval($page) > $paginasTotales || intval($page)=== 0)  {
-            header('Location:/admin');
-        }
-        
-
-        // creamos la lista de usuarios a imprimir según la página en la que nos encontremos 
-        for ($i = $usuarioInicial; ;$i++){
-            if($i === $usuarioInicial + $usuariosPagina || $i === count($usuarios)){
-                break;
-            }
-            if($usuarios[$i]){
-                $imprUsuarios[] = $usuarios[$i];
-            }
-
-        };
-
-
-        
-
-        
-        
+ 
 
         $router->render('admin/usuarios', [
-            'title' => 'Iriépal es pasión || Administracion Usuarios',
-            'usuarios' => $imprUsuarios,
-            'paginasTotales' => $paginasTotales,
-            'type' => $type,
-            'page' => intval($page)
+            'title' => 'Iriépal es pasión || Administracion Usuarios'
+            
             
             
         ]);
         
+    }
+
+    public static function actualizarUsuario(Router $router){
+
+        isAdmin();
+
+        
+
+        if(!(empty($_GET))){
+            $id = ($_GET['id']);
+            $usuario = Usuario::find($id);
+        }else{
+            header('Location: /admin');
+        }
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            if(!(isset($_POST['fotografo']))){
+                $_POST['fotografo'] = '0';
+            }
+            if(!(isset($_POST['blog']))){
+                $_POST['blog'] = '0';
+            }
+            if(!(isset($_POST['restringido']))){
+                $_POST['restringido'] = '0';
+            }
+            
+            $usuario->sincronizar($_POST);
+            $usuario->guardar();
+            header('Location: /admin/usuarios');
+            
+        }
+ 
+
+        $router->render('admin/usuarios/actualizar', [
+            'title' => 'Iriépal es pasión || Actualizacion Usuario',
+            'usuario' => $usuario
+            
+        ]);
+        
+    }
+
+    public static function eliminarUsuario(){
+        if($_SESSION['admin'] != 1){
+            header('Location: /');
+        }
+
+        $id = $_GET['id'];
+        $usuario = Usuario::find($id);
+        if($usuario){
+            $usuario->eliminar();
+            echo json_encode($usuario);
+        }else{
+            header('Location: /admin/usuarios');
+        }
+        
+            
+        
+
     }
 
     public static function noticias(Router $router){

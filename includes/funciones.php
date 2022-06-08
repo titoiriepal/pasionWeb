@@ -12,3 +12,10 @@ function s($html) : string {
     $s = htmlspecialchars($html);
     return $s;
 }
+
+
+function isAdmin(){
+    if($_SESSION['admin'] != 1){
+        header('Location: /');
+    }
+}

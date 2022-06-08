@@ -1,0 +1,1 @@
+function iniciarFuncionActualizar(){}document.addEventListener("DOMContentLoaded",(function(){iniciarFuncionActualizar()}));
