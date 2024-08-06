@@ -1,0 +1,68 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.edicionesAnteriores{
+    margin-top: 4rem;
+}
+.contenedor-ediciones{
+    max-width:1132px;
+    margin: 0 auto;
+    background-color: darken(v.$crema, 8%);
+    
+    
+    @include m.tablet {
+        display:flex;
+    }
+    
+    
+    .lista-ediciones{
+        margin: 0 2rem;
+        min-width:50%;
+        text-align:center;
+        border-left:15px solid darken(v.$morado, 5%);
+        border-right:15px solid darken(v.$morado, 5%);
+
+        @include m.tablet {
+            
+        }
+
+        p{
+            margin: 12rem 0;
+            background-color: darken(v.$morado, 5%);
+
+        }
+
+        .btnedicion{
+            background-color: v.$morado;
+            color:v.$blanco;
+            font-size:1.6rem;
+            padding: 2rem 4rem;
+            font-weight: bold;           
+            border-radius: 5px;
+            border: 2px solid lighten(v.$morado, 8%);
+
+            @include m.tablet {
+                font-size:2rem;
+            }
+
+            &:hover{
+                background-color: lighten(v.$morado, 8%);
+            }
+        }
+    }
+
+    .imagen-ediciones{
+        display:none;
+        @include m.tablet {
+            display:block;
+        }
+    }
+    .imgEdiciones{
+        height:100%;
+        width:100%;
+    }
+        
+    
+
+
+}

@@ -1,0 +1,1 @@
+<h2 class="encabezado_h2"> <?php echo $cabecera ?></h2>

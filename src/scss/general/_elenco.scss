@@ -1,0 +1,139 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.elenco-section{
+
+   
+
+    h3{
+        margin-top: 4rem;
+    }
+
+    .nombre, .personaje{
+        
+        color:v.$blanco;
+        text-shadow: 2px 2px #111111;
+        text-align:center;
+        padding-left:1rem;
+        padding-right: 1rem;
+    }
+
+    .personaje{
+        font-weight: bold;
+    }
+
+    .nombre{
+        padding-top: 20rem;
+        @include m.desktop {
+            padding-top: 33rem;
+        }
+
+    }
+
+    .enlace{
+        text-align:center;
+    }
+
+
+}
+
+.elenco{
+
+    padding-top: 4rem;
+    
+    @include m.grid(2, 1rem);
+
+    @include m.tablet {
+        @include m.grid(3, 1rem);
+    }
+
+    @include m.desktop {
+        @include m.grid(6, 0.5rem);
+    }
+
+    .actor{
+        min-width:150px !important;
+        min-height: 30rem;
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-position: center center;
+        border-radius: 5px;
+
+        @include m.desktop {
+            min-height: 450px !important;
+            
+        }
+
+    }
+
+    .jesus{
+        background-image: url(../img/elenco/jesus.jpg);
+        
+    }
+    .maria{
+        background-image: url(../img/elenco/maria.jpg);
+        
+    }
+    .pedro{
+        background-image: url(../img/elenco/pedro.jpg);
+        
+    }
+    .caifas{
+        background-image: url(../img/elenco/caifas.jpg);
+        
+    }
+    .pilatos{
+        background-image: url(../img/elenco/pilatos.jpg);
+        
+    }
+    .juan{
+        background-image: url(../img/elenco/juan.jpg);
+        
+    }
+
+    
+}
+
+.direction{
+    max-width: 100rem;
+    margin: 0 auto;
+
+    @include m.tablet {
+        @include m.grid(3, 1rem);
+    }
+
+    .direccion{
+        min-width:150px !important;
+        min-height: 30rem;
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-position: center center;
+        max-width:310px;
+        margin: 0 auto;
+        border-radius: 5px;
+
+        @include m.desktop {
+            min-height: 450px !important;
+            
+        }
+    }
+
+    .cordinacion{
+        background-image: url(../img/elenco/cordinacion.jpg);
+        background-position: center top !important;
+        
+    }
+    .arte{
+        background-image: url(../img/elenco/arte.jpg);
+        
+        
+    }
+    .tecnica{
+        background-image: url(../img/elenco/tecnica.jpg);
+        
+        
+    }
+
+}
+
+

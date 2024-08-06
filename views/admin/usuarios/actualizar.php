@@ -83,5 +83,5 @@
             
 </div>
 <?php
-$script = '<script src="/build/js/actualizaUsuarios.js"></script>';
+$script = '';
 ?>

@@ -1,0 +1,59 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.regresivo{
+
+    padding-top: 2rem;
+    position:relative;
+    height: auto;
+
+    &::before{
+        background-image: url(../img/regresivo.jpg);
+        content:'';
+    }
+
+    h2{
+        position:relative;
+        color:v.$crema;
+    }
+
+    .cuenta-regresiva{
+
+
+        .numero{
+            color: v.$blanco;
+            font-size: 3rem;
+            font-weight:bold;
+            margin-bottom: 2rem;
+            @include m.tablet {
+                font-size: 5rem;
+            }
+        }
+
+        ul{
+            list-style:none;
+            position:relative;
+            padding: 20px 0;
+
+            @include m.tablet {
+                display: flex;
+                padding:0 8%;
+                justify-content: space-between;
+            }
+            li{
+                text-transform:uppercase;
+                font-family:v.$fuente_principal;
+                font-size: 2rem;
+                text-align:center;
+                color: v.$crema;
+                background: transparent !important;
+                @include m.tablet {
+                    display:block !important;
+                }
+               
+            }
+        }
+    }
+
+}

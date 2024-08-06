@@ -1,6 +1,11 @@
 <?php
 
- $db = mysqli_connect('localhost', 'root', 'T75_iR(%)Pass1981', 'pasion');
+ $db = mysqli_connect(
+    $_ENV['DB_HOST'] ?? '',
+    $_ENV['DB_USER'] ?? '', 
+    $_ENV['DB_PASS'] ?? '', 
+    $_ENV['DB_NAME'] ?? ''
+);
 
 
  if (!$db) {

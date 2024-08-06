@@ -38,16 +38,40 @@ $router = new Router();
     $router->get('/auth/recuperar', [LoginController::class, 'recuperar']);
     $router->post('/auth/recuperar', [LoginController::class, 'recuperar']);
 
+// GALERIAS FOTOGRAFICAS
+    $router->get('/galerias/galeria', [NavController::class, 'galeriaFotografica']);
 
 // SECCION ADMINISTRACIÓN
 
     $router->get('/admin', [AdminController::class, 'admin']);
+
+    //ADMINISTRACION de USUARIOS
     $router->get('/admin/usuarios', [AdminController::class, 'usuarios']);
     $router->get('/admin/usuarios/eliminar', [AdminController::class, 'eliminarUsuario']);
     $router->get('/admin/usuarios/actualizar', [AdminController::class, 'actualizarUsuario']);
     $router->post('/admin/usuarios/actualizar', [AdminController::class, 'actualizarUsuario']);
+
+    //ADMINISTRACION DE NOTICIAS
     $router->get('/admin/noticias', [AdminController::class, 'noticias']);
+    $router->get('/admin/noticias/crear', [AdminController::class, 'nuevaNoticia']);
+    $router->post('/admin/noticias/crear', [AdminController::class, 'nuevaNoticia']);
+    $router->get('/admin/noticias/eliminar', [AdminController::class, 'eliminarNoticia']);
+    $router->get('/admin/noticias/actualizar', [AdminController::class, 'actualizarNoticia']);
+    $router->post('/admin/noticias/actualizar', [AdminController::class, 'actualizarNoticia']);
+    $router->post('/admin/noticias/foto', [AdminController::class, 'seleccionarFoto']);
+
+    //ADMINISTRACION DE GALERIAS
     $router->get('/admin/galerias', [AdminController::class, 'galerias']);
+    $router->get('/admin/galerias/crear', [AdminController::class, 'crearGaleria']);
+    $router->post('/admin/galerias/crear', [AdminController::class, 'nuevaGaleria']);
+    $router->get('/admin/galerias/eliminar', [AdminController::class, 'eliminarGaleria']);
+    $router->get('/admin/galerias/galeria', [AdminController::class, 'editarGaleria']);
+    $router->post('/admin/galerias/galeria', [AdminController::class, 'editarGaleria']);
+    $router->post('/admin/galerias/galeria/eliminar', [AdminController::class, 'eliminarFotografia']);
+    $router->post('/admin/galerias/galeria/muestra', [AdminController::class, 'muestraFotografia']);
+
+
+
     $router->get('/admin/blogs', [AdminController::class, 'blogs']);
     $router->get('/admin/elenco', [AdminController::class, 'elenco']);
     $router->get('/admin/anteriores', [AdminController::class, 'anteriores']);
@@ -57,6 +81,8 @@ $router = new Router();
 
     $router->get('/admin/api/usuarios', [ApiController::class, 'getUsuarios']);
     $router->post('/admin/api/buscaUsuarios', [ApiController::class, 'findUsuarios']);
+    $router->get('/admin/api/usuariosNoFoto', [ApiController::class, 'getUsuariosNoFoto']);
+    $router->post('/admin/api/buscaUsuariosNoFoto', [ApiController::class, 'findUsuariosNoFoto']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

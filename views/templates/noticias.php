@@ -2,6 +2,8 @@
 
 <section class="contenedor noticias">
     <h2>Noticias</h2>
+    <br>
+    <br>
 
 <!-- Opción frame vertical deslizante -->
 
@@ -41,8 +43,33 @@
     <div class="contenedor contenedor-slider">
 
         <ul id="lista-noticias"> 
+
+            <?php 
+            $contador = 0;
+            foreach($noticias as $noticia):
+                
+                $indexFoto = array_search($noticia->idFoto, array_column($fotografias, 'id'));
+                $user = $fotografias[$indexFoto]->idUsuario;
+                $root = $guia[$user] . trim($fotografias[$indexFoto]->ruta);
+
+            ?>
+                <li><p><strong><?php echo $noticia->titulo ?></strong></p><p><?php echo $noticia->resumen ?></p>
+
+                
+                <a href="#"><img class="imagen-noticia" src='<?php echo $root ?>' alt="Noticia"></a>
+                
+                </li>
+
+
+
+            <?php 
+            if($contador >=10){
+                break;
+            }
+            endforeach; 
+            ?>
             
-            <li><p><strong>1</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, possimus sed! Est optio adipisci ducimus vitae eos deleniti suscipit in vel illum quasi. Harum, laudantium nesciunt! Natus deserunt consequuntur soluta.</p>
+            <!-- <li><p><strong>1</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, possimus sed! Est optio adipisci ducimus vitae eos deleniti suscipit in vel illum quasi. Harum, laudantium nesciunt! Natus deserunt consequuntur soluta.</p>
                 <a href="#"><img class="imagen-noticia" src="build/img/noticia.jpeg" alt="Noticia"></a>
                 
             </li>
@@ -104,7 +131,7 @@
             <li><p><strong>12</strong></p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem consequuntur necessitatibus eum laborum porro ullam, sapiente earum error quo, molestiae recusandae suscipit repudiandae quaerat inventore numquam mollitia! Vitae, tempora. Odit?</p>
                 <img class="imagen-noticia" src="build/img/noticia.jpeg" alt="Noticia">
                 
-            </li> 
+            </li>  -->
 
         </ul>
 

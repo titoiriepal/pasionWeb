@@ -1,0 +1,43 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.tabla{
+    margin: 4rem auto 0 auto;
+    width: 90%;
+    border-spacing: 1px;
+
+    thead{
+        background-color:v.$fondoClaro;
+        font-size: 1.2rem;
+        
+        th{
+            border: 1px solid v.$morado;
+            &:hover{
+                cursor:pointer;
+            }
+        }
+    }
+    tbody{
+
+        tr{
+            background-color: darken(v.$crema, 5%);
+            
+            td{
+                font-family:'Times New Roman', Times, serif;
+                font-size:1.4rem;
+                text-align:center;
+                height: 8rem;
+                a{
+                    display:block;
+                }
+                
+                
+
+                
+            }
+            &:nth-child(even){
+                background-color: darken(v.$crema, 10%);
+            }
+        }
+    }
+}

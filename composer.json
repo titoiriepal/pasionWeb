@@ -19,6 +19,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "phpmailer/phpmailer": "dev-master"
+        "phpmailer/phpmailer": "dev-master",
+        "intervention/image": "2.7",
+        "vlucas/phpdotenv": "^5.6@dev"
     }
 }

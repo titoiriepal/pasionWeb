@@ -75,6 +75,7 @@ class LoginController{
     public static function crear(Router $router) {
 
         $usuario = New Usuario();
+        
 
         //Alertas vacias
 

@@ -1,0 +1,74 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.section-blogs{
+    margin-top: 4rem;
+}
+.contenedor-blogs{
+
+    
+    
+
+    @include m.desktop {
+        display:flex;
+        
+        border-bottom: 3px solid v.$morado;
+        
+    }
+
+    .imagen{
+        position:relative;
+        height: auto;
+        width:50%;
+        background-image: url(../img/cristo.png);
+        background-repeat: no-repeat;
+        background-size:cover;
+        
+
+    }
+
+    .blogs{
+        padding: 1rem 2rem;
+
+        @include m.desktop {
+            width:50%;
+            padding: 1rem 2rem;
+        }
+
+        .blog{
+            border: 2px solid v.$morado;
+            border-radius: 8px;
+            padding: 2rem 1rem;
+            margin: 3rem 0;
+            background-color: lighten(v.$morado, 8%);
+
+            h3{
+                color: v.$blanco;
+            }
+
+            h4{
+                text-align: center;
+                color:darken(v.$blanco, 20%);
+
+            }
+
+            p{
+                color: v.$blanco;
+                text-align: center;
+                font-size: 1.6rem;
+
+                a{
+                    font-size: 1.3rem;
+                    color: v.$blanco;
+
+                }
+            }
+
+            
+        }
+        
+    }
+
+    
+}

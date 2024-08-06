@@ -8,162 +8,50 @@
 <section class="seccion-galerias" id="galeria">
     <h2 class="titulo">Galerías fotográficas</h2>
     <div class="contenedor galerias">
-        
-    <a href="#">
-        <div class="galeria">
-            <h3>Marcos García Justo</h3>
-            <div class="slider">
-                <div class="slide-track2">
-                    <div class="slide">
-                        <img src="build/img/marcos_garcia_justo/mgj1.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/marcos_garcia_justo/mgj2.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/marcos_garcia_justo/mgj3.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/marcos_garcia_justo/mgj4.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/marcos_garcia_justo/mgj5.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/marcos_garcia_justo/mgj6.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <!-- <div class="slide">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-                    </div> -->
-                    <div class="slide">
-                        <img src="build/img/marcos_garcia_justo/mgj1.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/marcos_garcia_justo/mgj2.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/marcos_garcia_justo/mgj3.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/marcos_garcia_justo/mgj4.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/marcos_garcia_justo/mgj5.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/marcos_garcia_justo/mgj6.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <!-- <div class="slide">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-                    </div> -->
-                </div>
-            </div>
-        </div>
-        </a>
 
-        <a href="#">
-        <div class="galeria">
-            <h3>Pablo Pasabados</h3>
-            <div class="slider">
-                <div class="slide-track3">
-                    <div class="slide">
-                        <img src="build/img/pablo_pasabados/ppr1.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/pablo_pasabados/ppr2.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/pablo_pasabados/ppr3.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/pablo_pasabados/ppr4.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/pablo_pasabados/ppr5.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/pablo_pasabados/ppr6.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <!-- <div class="slide">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-                    </div> -->
-                    <div class="slide">
-                        <img src="build/img/pablo_pasabados/ppr1.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/pablo_pasabados/ppr2.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/pablo_pasabados/ppr3.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/pablo_pasabados/ppr4.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/pablo_pasabados/ppr5.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <div class="slide">
-                        <img src="build/img/pablo_pasabados/ppr6.jpg" height="217" width="325" alt="" />
-                    </div>
-                    <!-- <div class="slide">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-                    </div> -->
-                </div>
-            </div>
-        </div>
-        </a>
-
-        <a href="#">
+    <?php  
+        $arrayIndex = 0;
+        foreach($galeriasAutor as $galeria):
+    ?>
+        <a href="/galerias/galeria?galery=<?php echo $galeria->id ?>">
             <div class="galeria">
-                <h3>José Pastor</h3>
+                <h3><?php echo $galeria->autor ?></h3>
                 <div class="slider">
-                    <div class="slide-track1">
-                        <div class="slide">
-                            <img src="build/img/jose_pastor/jp1.jpg" height="217" width="325" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="build/img/jose_pastor/jp2.jpg" height="217" width="325" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="build/img/jose_pastor/jp3.jpg" height="217" width="325" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="build/img/jose_pastor/jp4.jpg" height="217" width="325" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="build/img/jose_pastor/jp5.jpg" height="217" width="325" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="build/img/jose_pastor/jp6.jpg" height="217" width="325" alt="" />
-                        </div>
-                        <!-- <div class="slide">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-                        </div> -->
-                        <div class="slide">
-                            <img src="build/img/jose_pastor/jp1.jpg" height="217" width="325" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="build/img/jose_pastor/jp2.jpg" height="217" width="325" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="build/img/jose_pastor/jp3.jpg" height="217" width="325" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="build/img/jose_pastor/jp4.jpg" height="217" width="325" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="build/img/jose_pastor/jp5.jpg" height="217" width="325" alt="" />
-                        </div>
-                        <div class="slide">
-                            <img src="build/img/jose_pastor/jp6.jpg" height="217" width="325" alt="" />
-                        </div>
-                        <!-- <div class="slide">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-                        </div> -->
+                    <div class="slide-track2">
+                        <?php foreach($arrayMuestras[$arrayIndex] as $muestra):
+                            $ruta = $arrayCarpetas[$arrayIndex] . trim($muestra->ruta);
+                        ?>
+                            <div class="slide">
+                                <img src="<?php echo $ruta ?>" height="217" width="325" alt="" />
+                            </div>
+                        <?php    
+                        endforeach;    
+                        ?>
+                        <?php foreach($arrayMuestras[$arrayIndex] as $muestra):
+                            $ruta = $arrayCarpetas[$arrayIndex] . trim($muestra->ruta);
+                        ?>
+                            <div class="slide">
+                                <img src="<?php echo $ruta ?>" height="217" width="325" alt="" />
+                            </div>
+                        <?php    
+                        endforeach;    
+                        ?>
+                    
                     </div>
                 </div>
             </div>
         </a>
+    
+
+    <?php
+        $arrayIndex += 1;
+        endforeach;
+    ?>
+
+
+
+
+    
 
     </div>
 

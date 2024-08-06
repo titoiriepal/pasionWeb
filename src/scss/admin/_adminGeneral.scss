@@ -1,0 +1,38 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.contenedor-admin{
+    max-width: 1132px;
+    width: 90%;
+    margin: 0 auto 3rem auto;
+
+    @include m.tablet {
+        @include m.grid(3, 2rem);
+        margin-bottom: 3rem;
+    }
+    
+
+    .boton{
+        display:block;
+        margin: 2rem 0;
+    }
+}
+
+.retorno{
+    max-width: 1132px;
+    width: 90%;
+    margin: 0 auto 3rem auto;
+
+    @include m.tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .boton{
+        display:block;
+        margin: 2rem 0;
+    }
+}
+

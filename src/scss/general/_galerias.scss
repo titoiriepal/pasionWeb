@@ -1,0 +1,105 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.seccion-galerias{
+    
+    min-height: 300px;
+
+    
+
+    .galerias{
+        padding-top: 3rem;
+        
+        @include m.desktop {
+            @include m.grid(2, 1rem);
+        }
+
+        .galeria{
+            align-items: center;
+            background-color: darken(v.$crema, 8%);
+            height: auto;
+            justify-content: center;
+            padding: 2rem 1rem ;
+            
+        }
+
+        @mixin white-gradient {
+            background: linear-gradient(to right, rgba(255,255,255,0.8) 0%,rgba(255,255,255,0) 40%);
+        }
+
+        $animationSpeed1: 80s;
+        $animationSpeed2: 90s;
+        $animationSpeed3: 100s;
+
+        // Animation
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-325px * 6))}
+        }
+
+
+        // Styling
+        .slider {
+            background-color: darken(v.$crema, 8%);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+            height: 217px;
+            margin: auto;
+            overflow:hidden;
+            position: relative;
+            max-width: 500px;
+            width: auto;
+            border-radius: 20px;
+            @include m.tablet {
+                max-width: 600px;
+                
+            }
+            @include m.desktop {
+                max-width: 450px;
+            }
+            
+            &::before,
+            &::after {
+                @include white-gradient;
+                content: "";
+                height: 217px;
+                position: absolute;
+                width: 325px;
+                z-index: 2;
+            }
+            
+            &::after {
+                right: 0;
+                top: 0;
+                transform: rotateZ(180deg);
+            }
+
+            &::before {
+                left: 0;
+                top: 0;
+            }
+            
+            .slide-track1 {
+                animation: scroll $animationSpeed1 linear infinite;
+                display: flex;
+                width: calc(325px * 14);
+            }
+            .slide-track2 {
+                animation: scroll $animationSpeed2 linear infinite;
+                display: flex;
+                width: calc(325px * 14);
+            }
+            .slide-track3 {
+                animation: scroll $animationSpeed3 linear infinite;
+                display: flex;
+                width: calc(325px * 14);
+            }
+            
+            .slide {
+                height: 217px;
+                width: 325px;
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,248 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+header{
+.title-header{
+    background: linear-gradient(to right, rgba(68, 1, 29, 0.8), rgba(68, 1, 29, 0.5) 33%, rgba(68, 1, 29, 0.5)  66%, rgba(68, 1, 29, 0.8));
+    padding: 1rem;
+    
+
+    .box-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index:3;
+        @include m.tablet{
+            justify-content:center
+            
+        }
+        
+
+        &.fijo{
+            position: fixed;
+            min-width:320px;
+            width:100%;
+            top:0;
+            left:0;
+            box-shadow: .1rem .2rem .3rem #333;
+            background: linear-gradient(to right, rgba(68, 1, 29, 1), rgba(146, 93, 115, 1) 20%, rgba(146, 93, 115, 1)  80%, rgba(68, 1, 29, 1));
+
+            @include m.tablet{
+                display:none;
+                
+                
+            }
+        }
+    }
+
+        h1{
+            color: v.$blanco;
+            text-align: left;
+            margin: 0 2rem;
+            text-shadow: 2px 2px v.$morado;
+            text-transform: uppercase;
+            font-size: 2rem;
+            @include m.tablet {
+                margin: 0 4rem;
+                line-height: 4rem;
+                font-size: 5.5rem;
+                
+                
+            }
+        }
+
+        .menu-bars{
+            color:v.$blanco;
+            position: relative;
+            background: transparent;
+            min-height: 50px; 
+            z-index:3;           
+            @include m.tablet {
+                display:none;
+                
+            }
+
+            a{
+                display:block;
+                color:v.$morado;
+                text-decoration: none;
+                padding: 10px 20px;
+                border-bottom: 2px, solid, v.$morado;
+                border-radius: 5px;
+                font-weight: bold;
+                background-color: v.$blanco;
+                
+            }
+
+            input[type="checkbox"], .fa-bars, .fa-times{
+                position:absolute;
+                box-sizing: border-box;
+                margin:0;
+                padding: 0;
+                right: 10px;
+                top: 0;
+                width: 50px;
+                height:50px;
+            }
+
+            .fa-bars, .fa-times{
+                font-size: 50px;
+                pointer-events: none;
+            }
+
+            input[type="checkbox"]{
+                opacity:0;
+            }
+
+            nav{
+                display:none;
+                position:absolute;
+                top: 30px;
+                right: 10px;
+                
+
+                li{
+                    list-style:none;
+                    padding:0;
+                    margin:0;
+                    background: transparent;
+                }
+            }
+
+            input:checked ~ nav {
+                display: block;
+              }
+
+              input:not(:checked) ~ nav{
+                  display:none;
+              }
+
+              input:checked ~ .fa-bars {
+                display: none;
+              }
+
+              input:not(:checked) ~ .fa-times {
+                display: none;
+              }
+
+
+
+        }
+    }
+
+
+
+    .barra{
+        &.fijo{
+            position: fixed;
+            width:100%;
+            top:0;
+            left:0;
+            box-shadow: .1rem .2rem .3rem #333;
+            z-index:3;
+        }
+    }
+    
+
+    .menu-principal{
+        display:none;
+        background-color:v.$morado;
+        z-index:2;
+
+        &:hover{
+            background-color: lighten(v.$morado, 8%);
+        }
+        
+        @include m.tablet {
+            text-align:center;
+            display: flex;
+            justify-content:center;
+            padding: 1rem;
+            
+        }
+
+        .btn-menu{
+            font-size:1.3rem;
+            color: v.$blanco;
+            margin: 0 1.5rem;
+            cursor:pointer;
+            transition:none;
+            -webkit-transition:all .5s ease-in-out;
+
+            @include m.desktop {
+                font-size: 1.6rem;
+            }
+
+            &:hover{
+                -webkit-transform: scale(1.2);
+                transform:rotate(3deg);
+                font-weight: bold;
+                font-size: 2rem;
+                
+            }
+        }
+
+
+    }
+
+    .backimg{
+        //background-image: url("../img/head.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include m.tablet {
+            background-image: url("../img/headTable.webp");
+        }
+    }
+
+
+
+    .redes-sociales{
+        text-align:center;
+        padding-top: 1rem;
+        
+            i{
+                text-decoration: none;
+                color: v.$blanco;
+                text-shadow: 2px 2px v.$morado;
+                cursor: pointer;
+            }
+    }
+
+    .div-sesion{
+        background-color: darken(v.$crema, 8%);
+        width:90%;
+        margin: 0 auto;
+        padding: 2rem;
+        text-align: center;
+        @include m.tablet {
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        
+
+        .saludo{
+            @include m.tablet {
+                margin:0 !important;
+            }
+            
+        }
+
+        .boton{
+
+            @include m.tablet {
+                text-align: right;
+                margin: 0;
+            }
+            
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+
+}

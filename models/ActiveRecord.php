@@ -33,6 +33,7 @@ class ActiveRecord {
     public static function consultarSQL($query) {
         // Consultar la base de datos
         $resultado = self::$db->query($query);
+        
 
         // Iterar los resultados
         $array = [];
@@ -46,6 +47,7 @@ class ActiveRecord {
         // retornar los resultados
         return $array;
     }
+
 
     // Crea el objeto en memoria que es igual al de la BD
     protected static function crearObjeto($registro) {
@@ -93,6 +95,45 @@ class ActiveRecord {
         }
     }
 
+    public function setRuta($ruta){
+    
+        //Eliminar la imagen previa(en el caso de actualizar)
+        if(!is_null($this->id)){
+            $this->borrarImagen();
+            
+        }
+
+        //Asignar al atributo de imagen el nombre de la imagen
+        if ($ruta){
+            $this->ruta = $ruta;
+        }
+    }
+
+     //Eliminar la imagen
+   
+     public function borrarImagen(){
+        //Comprobar si existe el archivo
+        $existeArchivo = file_exists(CARPETA_IMAGENES . $this->ruta);
+        if($existeArchivo){
+            unlink(CARPETA_IMAGENES . $this->ruta);
+        }
+
+    }
+
+    public function eliminarFotografia($carpeta){
+        $rutaArchivo = $carpeta . trim($this->ruta);
+        $existeArchivo = file_exists($rutaArchivo);
+        if($existeArchivo){
+            unlink($rutaArchivo);
+        }
+        $this->eliminar();
+
+    }
+    
+
+     //Eliminar la imagen
+   
+
     // Registros - CRUD
     public function guardar() {
         $resultado = '';
@@ -113,6 +154,13 @@ class ActiveRecord {
         return $resultado;
     }
 
+    // Cantidad de registros desde una determinada posicion.
+    public static function findXFromTo($columna, $principio, $cantidad) {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE " . $columna . " > " . $principio . " LIMIT " . $cantidad; 
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     // Busca un registro por su id
     public static function find($id) {
         $query = "SELECT * FROM " . static::$tabla  ." WHERE id = ${id}";
@@ -129,7 +177,14 @@ class ActiveRecord {
     public static function arrayWhere($columna, $valor) {
         $query = "SELECT * FROM " . static::$tabla  ." WHERE ${columna} = '${valor}'";
         $resultado = self::consultarSQL($query);
-        return  ($resultado);
+        return  $resultado;
+    }
+
+    public static function counter($columna, $valor){
+        $query = "SELECT COUNT(*) FROM " . static::$tabla . " WHERE ${columna} = '${valor}'";
+        $resultado = self::consultarSQL($query);
+        return ($resultado);
+
     }
 
     //Consulta plana de SQL (Utilizar cuando los métodos del modelo no sonsuficientes)

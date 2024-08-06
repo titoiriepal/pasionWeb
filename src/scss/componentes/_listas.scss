@@ -1,0 +1,25 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+ul{
+    
+    li{
+        list-style-type: none;
+        margin-bottom: calc(v.$separacion / 2);
+        background-color: darken(v.$crema, 10%);
+        padding: 1rem;
+
+        @include m.tablet {
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+            
+        }
+
+        span.forte{
+            font-weight: bold;
+        }
+        
+        
+    }
+}

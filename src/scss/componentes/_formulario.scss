@@ -1,0 +1,65 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.formulario{
+    margin-top: v.$separacion;
+    width: 100%;
+    font-weight:bold;
+}
+
+fieldset{
+    border-width: 4px;
+    border-radius: 10px;
+}
+
+
+.campo{
+    
+    display:flex;
+    margin-bottom:2rem;
+    align-items: center;
+    label{
+        flex: 0 0 13rem;
+
+    }
+    input{
+        font-family:'Times New Roman', Times, serif;
+        flex: 1;
+        border:none;
+        padding: calc(v.$separacion / 4);
+        border-radius: 5px;
+        min-width:165px;
+        margin-right: 1rem;
+
+    }
+
+    textarea{
+        font-family:'Times New Roman', Times, serif;
+        flex: 1;
+        border:none;
+        padding: calc(v.$separacion / 4);
+        border-radius: 5px;
+        margin-right: 1rem;
+        
+
+        &.resumen{
+            height: 8rem;
+            
+        }
+
+        &.cuerpo{
+            height: 20rem;
+        }
+    }
+
+    .archivo{
+        font-family:'Times New Roman', Times, serif;
+        flex: 1;
+        border:none;
+        padding: calc(v.$separacion / 4);
+        border-radius: 5px;
+        min-width:165px;
+        margin-right: 1rem;
+    }
+    
+}

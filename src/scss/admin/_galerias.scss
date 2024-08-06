@@ -1,0 +1,61 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.admin_fotos{
+    display:flex;
+    text-align:center;
+    justify-content: space-between;
+    
+    padding:1rem;
+
+    
+}
+
+
+.muestraFotos{
+    margin: 3rem;
+    display:block;
+
+    @include m.tablet {
+        @include m.grid(2, 5rem);
+    };
+
+    @include m.desktop {
+        @include m.grid(4, 2rem);
+        
+    }
+
+}
+
+.adminFoto{
+    border-radius:10px;
+    max-height: 20rem;
+    
+}
+
+.contienefoto{
+    text-align:center;
+    border:solid,1rem,v.$gris;
+    padding: 2rem;
+}
+
+.fotoOpciones{
+    display:flex;
+    margin: 0 auto 3rem auto;
+    justify-content: space-between;
+
+    .fotoMuestra{
+        @include m.boton (v.$morado, v.$blanco);
+        margin: 2px;
+    }
+    
+    .eliminaFoto{
+        @include m.boton (v.$rojo, v.$blanco);
+        margin: 2px;
+    }
+
+    .fotoSelec{
+        @include m.boton (v.$rosaPalo, v.$gris );
+        margin: 2px;
+    }
+}

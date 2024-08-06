@@ -1,3 +1,4 @@
+<div class="contenedor">
 <?php
 
     foreach($alertas as $key => $mensajes):
@@ -14,3 +15,4 @@
     endforeach;
 
 ?>
+</div>

@@ -1,0 +1,21 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.paginas{
+
+    text-align: center;
+    align-items: center;
+    p{
+        font-size: 3.3rem;
+        color:v.$morado;
+    }
+    .fa-solid{
+        color:v.$morado;
+        font-size: 3.3rem;
+        margin: 0 2rem;
+        &:hover{
+            cursor:pointer;
+            color:lighten( v.$morado, 10% );
+        }
+    }
+}

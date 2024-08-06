@@ -1,0 +1,23 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.boton{
+    @include m.boton ( v.$morado, v.$blanco);
+}
+
+.boton-rojo{
+    @include m.boton (v.$rojo, v.$blanco );
+    width: 10rem !important;
+    margin-bottom: 1rem;
+    padding: 0 1rem !important;
+
+}
+
+.boton-amarillo{
+    @include m.boton (v.$amarillo, v.$blanco);
+    width: 10rem !important;
+    margin-bottom: .5rem;
+    padding: .0 1rem !important;
+    
+    
+}
