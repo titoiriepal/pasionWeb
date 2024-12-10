@@ -246,3 +246,14 @@ header{
     }
 
 }
+
+.botones--menu{
+    display:flex;
+    flex-direction: column;
+    gap: .5rem;
+    @include m.mediaq(v.$tablet){
+        display:inline-block;
+    }
+}
+
+

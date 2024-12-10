@@ -43,8 +43,18 @@ if (!(empty($_SESSION))):
 ?>
     <div class="div-sesion">
         <h4 class="saludo">Hola, <?php echo $_SESSION['nombre'] ?></h4>
-        <a href="/auth/logout" class="boton">Cerrar sesion</a>
-    </div>
+        <div class="botones--menu">
+            <a href="/auth/logout" class="boton">Cerrar sesion</a>
+    
+        <?php 
+            if($_SESSION['admin'] ==="1"  || $_SESSION['blog'] === "1" || $_SESSION['fotografo'] === "1"){
+        ?>
+            <a href="/admin" class="boton">Administración</a>
+        <?php
+            }
+        ?>
+        </div>
+     </div>
     
 
 <?php endif ?>
@@ -52,3 +62,4 @@ if (!(empty($_SESSION))):
         
 
 </header>
+

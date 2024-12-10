@@ -6,6 +6,7 @@ use MVC\Router;
 use Model\Noticia;
 use Model\Usuario;
 use Model\Fotografias;
+use Model\Galerias;
 use Model\GaleriaAutor;
 use Model\NoticiaAutor;
 
@@ -13,36 +14,30 @@ class NavController{
     
     public static function index (Router $router){
         $noticias = Noticia::all();
-        $galeriasAutor = GaleriaAutor::all();
+        $galerias = Galerias::all();
         $fotografias = Fotografias::all();
         
         $arrayMuestras = [];
         $arrayCarpetas = [];
         $i = 0;
-        foreach ($galeriasAutor as $galeria){
+        foreach ($galerias as $galeria){
+            $galeria->usuario = Usuario::find($galeria->idUsuario);
             $muestras = Fotografias::arrayMuestras('idUsuario', $galeria->idUsuario);
-            $usuario = Usuario::find($galeria->idUsuario);
-            $nombreCarpeta = nameCarpet($usuario->nombre, $usuario->apellidos);
+            $nombreCarpeta = nameCarpet($galeria->usuario->nombre, $galeria->usuario->apellidos);
             $carpetaUsuario = CARPETA_IMAGENES_INDEX . '/' . $nombreCarpeta . '/' ;
             $arrayMuestras[] = $muestras;
             $arrayCarpetas[] = $carpetaUsuario;
             $guia[$galeria->idUsuario] = $carpetaUsuario;
 
             $i += 1;
-
-            
+          
         }
-
-        
-
-        
-        
-        
+   
 
         $router->render('nav/index', [
             'title' => 'Pasión Viviente de Iriépal',
             'noticias' => $noticias,
-            'galeriasAutor' => $galeriasAutor,
+            'galerias' => $galerias,
             'arrayMuestras' => $arrayMuestras,
             'arrayCarpetas' => $arrayCarpetas,
             'fotografias' => $fotografias,

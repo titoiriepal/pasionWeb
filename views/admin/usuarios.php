@@ -4,7 +4,7 @@
 
 
 <div class="contenedor">
-    <form action="" class="formulario">
+    <form action="http://localhost:3000/admin/buscausuario?page=1" class="formulario">
         <div class="campo">
             <label for="busqueda">Buscar:</label>
             <input 
@@ -16,8 +16,13 @@
             <br>
             
         </div>
-        <p class="center"><span id=btnBusqueda class="boton">Buscar</span></p>
+        <p class = "center"><input type="submit" id=btnBusqueda class="center boton" value="Buscar"></p>
+        <!-- <p class="center"><span id=btnBusqueda class="boton">Buscar</span></p> -->
     </form>
+
+    <?php 
+        if(!empty($usuarios)) {
+    ?>
     <table class="tabla">
         <thead>
             <tr>
@@ -31,21 +36,87 @@
         </thead>
 
         <tbody id="cuerpoTabla">
+        <?php 
+                    foreach ($usuarios as $usuario) {
+                ?>
+                <tr class="table__tr">
+
+                    <td class="table__td">
+                        <?php 
+                            echo $usuario->nombre . ' ' . $usuario->apellidos;
+                        ?>
+                    </td>
+
+                    <td class="table__td">
+                        <?php 
+                            echo $usuario->email;
+                        ?>
+                    </td>
+                    <td class="table__td">
+                        <?php 
+                            $bool = ($usuario->admin === '1') ?  'Si' :  'No';
+                            echo $bool
+                        ?>
+                    </td>
+
+                    <td class="table__td">
+                        <?php 
+                            $bool = ($usuario->blog === '1') ?  'Si' :  'No';
+                            echo $bool
+                        ?>
+                    </td>
+
+                    <td class="table__td">
+                        <?php 
+                            $bool = ($usuario->fotografo === '1') ?  'Si' :  'No';
+                            echo $bool
+                        ?>
+                    </td>
+
+                    <td class="table__td">
+                        <?php 
+                            $bool = ($usuario->restringido === '1') ?  'Si' :  'No';
+                            echo $bool
+                        ?>
+                    </td>
+
+                    <td class="table__td--acciones">
+
+                        <a class="table__accion table__accion--editar" href="/admin/usuarios/actualizar?id=<?php echo $usuario->id;?>">
+                        <i class="fa-solid fa-user-pen"></i>
+                         Editar 
+                        </a>
+
+                        <form action="/admin/ponentes/eliminar" class="table__formulario" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $usuario->id; ?>">
+                            <button class="table__accion table__accion--eliminar" type="submit">
+                                <i class="fa-solid fa-circle-xmark"></i>
+                                Eliminar
+                            </button>
+
+                        </form>
+                    </td>
+                </tr>
+
+                <?php } ?>
+
         </tbody>
     </table>
+    <?php } else { ?>
+        <p class="text-center">No hay Ponentes registrados</p>
+
+    <?php } ?>
+
+    <?php 
+    echo $paginacion; 
+    ?>  
 </div>
 
-<!-- Paginacion de usuarios -->
-<div  class="paginas">
-    <p><i id="btnPrev"class="fa-solid fa-circle-chevron-left"></i><span id="numeroPagina"></span><i id="btnNext" class="fa-solid fa-circle-chevron-right"></i></p>
-    
-</div>    <!--  fin Paginación de usuarios -->
+<!-- Paginacion de usuarios --> 
+
 
 <div class="contenedor retorno">
     <a href="/admin"><button class="boton">Administracion</button></a>
     <a href="javascript:history.back()"><button class="boton" id="volver">Volver</button></a>
             
 </div>
-<?php
-$script = '<script src="/build/js/usuarios.js"></script><script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
-?>

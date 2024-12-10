@@ -64,7 +64,7 @@ var timer = 10000;
 var i = 0;
 var max = $('#lista-noticias > li').length;
  
-	$("#lista-noticias > li").eq(i).addClass('active').css('left','25%');
+	$("#lista-noticias > li").eq(i).addClass('active').css('left','10%');
 	
 	
  
@@ -84,7 +84,7 @@ var max = $('#lista-noticias > li').length;
 			i = 0; 
 		}  
 
-		$("#lista-noticias > li").eq(i).css('left','25%').addClass('active').css('transition-delay','1.25s');
+		$("#lista-noticias > li").eq(i).css('left','10%').addClass('active').css('transition-delay','1.25s');
 		
 		
 	

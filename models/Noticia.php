@@ -31,15 +31,21 @@ class Noticia extends ActiveRecord{
     public function validarNuevaNoticia(){
         
         if(!$this->titulo){
-            self::$alertas['error'][] = 'Es obligatorio introducir el titulo';
+            self::$alertas['error'][] = 'Es obligatorio introducir el titulo';           
+        }else if(strlen($this->titulo)>= 60){
+            self::$alertas['error'][] = 'El título de la noticia es demasiado largo'; 
         }
         if(!$this->resumen){
             self::$alertas['error'][] = 'Es obligatorio introducir un resumen de la noticia';
         }else if(strlen($this->resumen)<50){
             self::$alertas['error'][] = 'El resumen de la noticia debe contener, al menos, 50 caracteres.';
+        }else if(strlen($this->resumen)>= 300){
+            self::$alertas['error'][] = 'El resumen de la noticia es demasiado largo'; 
         }
         if(!$this->cuerpo){
             self::$alertas['error'][] = 'Es obligatorio introducir Un cuerpo de la noticia';
+        }else if(strlen($this->cuerpo)>= 10000){
+            self::$alertas['error'][] = 'El cuerpo de la noticia es demasiado largo'; 
         }
 
         return self::$alertas;

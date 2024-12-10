@@ -11,11 +11,11 @@
 
     <?php  
         $arrayIndex = 0;
-        foreach($galeriasAutor as $galeria):
+        foreach($galerias as $galeria):
     ?>
         <a href="/galerias/galeria?galery=<?php echo $galeria->id ?>">
             <div class="galeria">
-                <h3><?php echo $galeria->autor ?></h3>
+                <h3><?php echo $galeria->usuario->nombre . ' ' . $galeria->usuario->apellidos ?></h3>
                 <div class="slider">
                     <div class="slide-track2">
                         <?php foreach($arrayMuestras[$arrayIndex] as $muestra):

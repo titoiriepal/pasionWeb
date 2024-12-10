@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 function activarBotones(){
+    console.log(session);
     var btnUsuarios = document.getElementById('btnUsuarios');
     var btnNoticias = document.getElementById('btnNoticias');
     var btnGalerias = document.getElementById('btnGalerias');
@@ -10,7 +11,7 @@ function activarBotones(){
     var btnElenco = document.getElementById('btnElenco');
     var btnAnteriores = document.getElementById('btnAnteriores');
     if(session.admin === '1'){
-        btnUsuarios.href="admin/usuarios?type=all&page=1"
+        btnUsuarios.href="admin/usuarios?type=all"
         btnUsuarios.classList.remove('inactivo');
         btnNoticias.href="admin/noticias"
         btnNoticias.classList.remove('inactivo');

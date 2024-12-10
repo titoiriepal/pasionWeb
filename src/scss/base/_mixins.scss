@@ -18,6 +18,12 @@
     }
 }
 
+@mixin mediaq ($size) {
+    @media (min-width: $size){
+        @content;
+    }
+}
+
 @mixin alerta($color){
     
         background-color:lighten($color, 60%);

@@ -47,6 +47,7 @@ $router = new Router();
 
     //ADMINISTRACION de USUARIOS
     $router->get('/admin/usuarios', [AdminController::class, 'usuarios']);
+    $router->get('/admin/buscausuario', [AdminController::class, 'buscausuario']);
     $router->get('/admin/usuarios/eliminar', [AdminController::class, 'eliminarUsuario']);
     $router->get('/admin/usuarios/actualizar', [AdminController::class, 'actualizarUsuario']);
     $router->post('/admin/usuarios/actualizar', [AdminController::class, 'actualizarUsuario']);

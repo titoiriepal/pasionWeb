@@ -2,8 +2,8 @@
 
 namespace Controllers;
 
-
-
+use Classes\Paginacion;
+use GuzzleHttp\Psr7\Request;
 use Model\Fotografias;
 use Model\GaleriaAutor;
 use Model\Galerias;
@@ -17,11 +17,12 @@ class AdminController{
 
     public static function admin(Router $router) {
 
-        if($_SESSION['admin'] != 1  && $_SESSION['blog'] != 1  && $_SESSION['fotografo'] != 1){
+        //Comprobamos los permisos de los usuarios para acceder al panel de administración
+        if($_SESSION['admin'] !=1  && $_SESSION['blog'] !=1 && $_SESSION['fotografo'] !=1){
             header('Location: /');
         }
 
-
+        //Mostramos la vista. Dependiendo de los permisos apareceran unos botones u otros resaltados
         $router->render('admin/admin', [
             'title' => 'Iriépal es pasión || Administracion Web'
             
@@ -34,17 +35,89 @@ class AdminController{
     public static function usuarios(Router $router){
 
         isAdmin();
+        //Validamos los parametros del get
+        $pagina_actual = $_GET['page'];
+        $orden = $_GET['order'] ?? 'id';
+        $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
 
-        
- 
+        //Comprobamos que exista la página enviada o que no sea menor que uno. Redirigimos a la primera página
+        if(!$pagina_actual  || $pagina_actual < 1){
+            header('Location: /admin/usuarios?page=1');
+            $pagina_actual = 1;
+        }
 
+        //Contamos todos los registros que existen de Usuarios y creamos la paginación
+        $total_registros = Usuario::total();
+        $registros_por_pagina = 5;
+        $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros, $orden);
+
+        //Si la página actual es mayor al número de páginas totales, redirigimos a la primera página
+        if($paginacion->total_paginas() < $pagina_actual){
+            header('Location: /admin/usuarios?page=1');
+            $pagina_actual = 1;
+        }
+
+        //Traemos los registros de los usuarios de la página establecida
+        $usuarios = Usuario::paginar($registros_por_pagina, $paginacion->offset()," ", $orden);
+
+        //Renderizar
         $router->render('admin/usuarios', [
-            'title' => 'Iriépal es pasión || Administracion Usuarios'
-            
-            
-            
+            'title' => 'Iriépal es pasión || Administracion Usuarios',
+            'usuarios' => $usuarios,
+            'paginacion' => $paginacion->paginacion()
+                    
         ]);
         
+    }
+
+    public static function buscaUsuario (Router $router){
+
+
+        isAdmin(); //Solo para administradores
+        $pagina_actual = $_GET['page'];//Número de pagina a mostrar
+        $orden = $_GET['order'] ?? 'id';//Si hay que ordenar la busqueda por algún parmetro. Si no se ordenará por id
+        $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT); //Comprobar si el número de página introducido es un número 
+
+        //Comprobamos que exista la página enviada o que no sea menor que uno. Redirigimos a la primera página
+        if(!$pagina_actual  || $pagina_actual < 1){
+            header('Location: /admin/buscausuario?busqueda='. $_GET["busqueda"] .'&page=1');
+            $pagina_actual = 1;
+        }
+
+        //Nos devuelve el total de usuarios que tenemos según la busqueda
+        $total_registros = Usuario::totalQuery(['nombre' => $_GET["busqueda"],'apellidos' => $_GET["busqueda"],'email' => $_GET["busqueda"],'CONCAT(nombre, " ", apellidos)' => $_GET["busqueda"]]);
+
+        $registros_por_pagina = 10; //Número de elementos que muestra cada página
+
+        //Creamos la paginación
+        $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros, $orden);
+
+        //Si la página actual es mayor al número de páginas totales, redirigimos a la primera página
+        if($paginacion->total_paginas() < $pagina_actual){
+            header('Location: /admin/buscausuario?busqueda='. $_GET["busqueda"] .'&page=1');
+            $pagina_actual = 1;
+        }
+
+        //Obrtenemos de la BD los registros ordenados que cumplan el parámetro de busqueda
+        $usuarios = Usuario::paginar($registros_por_pagina, $paginacion->offset(),Usuario::selectWhereArray(['nombre' => $_GET["busqueda"],'apellidos' => $_GET["busqueda"],'email' => $_GET["busqueda"],'CONCAT(nombre, " ", apellidos)' => $_GET["busqueda"]]), $orden);
+
+        //Si no hay resultados de busqueda redirigimos a la página de Usuarios
+        if(!$usuarios)
+        {
+            header('Location: /admin/usuarios?page=1');
+            exit;
+        }
+
+        //renderizamos
+        $router->render('admin/usuarios', [
+            'title' => 'Iriépal es pasión || Administracion Usuarios',
+            'usuarios' => $usuarios,
+            'paginacion' => $paginacion->paginacion()
+                    
+        ]);
+
+
+
     }
 
     public static function actualizarUsuario(Router $router){
@@ -52,7 +125,6 @@ class AdminController{
         isAdmin();
 
         
-
         if(!(empty($_GET))){
             $id = ($_GET['id']);
             $usuario = Usuario::find($id);
@@ -277,19 +349,56 @@ class AdminController{
         $alertas=[];
 
         if ($_SESSION['admin'] != 1){
-            $galeria = Galerias::where('idUsuario', $_SESSION['id']);
             
+            $galeria = Galerias::where('idUsuario', $_SESSION['id']);         
             header('Location:/admin/galerias/galeria?id=' . $galeria->id);
+
         }else{
-            $galeriaAutor=GaleriaAutor::all();
+            
+            $pagina_actual = $_GET['page'];
+            $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
+
+            if(!$pagina_actual  || $pagina_actual < 1){
+                header('Location: /admin/galerias?page=1');
+                
+                $pagina_actual = 1;
+            }
+
+            
+            $total_registros = Galerias::total();
+            
+
+            if($total_registros == '0'){
+                
+                header('Location: /admin/galerias/crear');
+                exit;
+            }
+
+            
+            $registros_por_pagina = 5;
+            $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros);
+
+            if($paginacion->total_paginas() < $pagina_actual){
+                header('Location: /admin/galerias?page=1');
+                $pagina_actual = 1;
+            }
+
+            $galerias = Galerias::paginar($registros_por_pagina, $paginacion->offset()," ");
+
+            //Incluimos los datos del usuario en cada registro
+            foreach ($galerias as $galeria){
+                $galeria->usuario = Usuario::find($galeria->idUsuario);
+            }
+            
             
         }
 
         $router->render('admin/galerias', [
             'title' => 'Iriépal es pasión || Administracion Galerias',
-            'galeriaAutor' => $galeriaAutor,
+            'galerias' => $galerias,
             'alertas' => $alertas,
-            'cabecera' => 'Administración de Galerías'
+            'cabecera' => 'Administración de Galerías',
+            'paginacion' => $paginacion->paginacion()
             
         ]);
         
@@ -488,7 +597,6 @@ class AdminController{
 
         
         $usuarios = Usuario::consultarSQL('SELECT * FROM pasion.usuarios WHERE fotografo != 1');
-        echo ('hola');
 
         $alertas = [];
 
