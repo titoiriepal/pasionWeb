@@ -31,6 +31,13 @@ fieldset{
         min-width:165px;
         margin-right: 1rem;
 
+        &.boton_input{
+            @include m.mediaq(v.$tablet){
+                text-transform: uppercase;
+                flex: .5;
+            }
+        }
+
     }
 
     textarea{
@@ -62,4 +69,8 @@ fieldset{
         margin-right: 1rem;
     }
     
+}
+
+.campo_boton{
+    margin-bottom: calc(v.$separacion/2);
 }

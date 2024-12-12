@@ -10,21 +10,24 @@
 
 <div class="contenedor">
     <ul class="listas">
-        <?php foreach ($noticiaAutor as $registro): ?>
+        <?php foreach ($noticias as $noticia): ?>
             <li>
                 <div class="listaDatos">
-                    <span class="forte"><?php echo $registro->titulo; ?></span>
+                    <span class="forte"><?php echo $noticia->titulo; ?></span>
                     <br>
-                    <span><?php echo 'Por' . $registro->autor . ' el '. $registro->fecha; ?></span>
+                    <span><?php echo 'Por' . $noticia->usuario->nombre . ' '. $noticia->usuario->apellido . ' el '. $noticia->fecha; ?></span>
                 </div>
                 <div class="listaAcciones">
-                    <a href="/admin/noticias/actualizar?id=<?php echo $registro->id; ?>"" class="boton-amarillo">Editar</a>
-                    <a href="/admin/noticias/eliminar?id=<?php echo $registro->id; ?>" class="boton-rojo">Eliminar</a>
+                    <a href="/admin/noticias/actualizar?id=<?php echo $noticia->id; ?>"" class="boton-amarillo">Editar</a>
+                    <a href="/admin/noticias/eliminar?id=<?php echo $noticia->id; ?>" class="boton-rojo">Eliminar</a>
                 </div>
 
             </li>
         <?php endforeach; ?>
     </ul>
+    <?php 
+    echo $paginacion; 
+    ?>  
 </div>
 
 <div class="contenedor retorno">

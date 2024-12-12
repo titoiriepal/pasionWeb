@@ -186,7 +186,17 @@ class ActiveRecord {
         //debuguear($query);
         $resultado = self::consultarSQL($query);
         return  $resultado;
-    }    
+    }  
+    
+    public static function paginarAsc($registros, $offset, $query = " ",$orden = "id"){
+        if($query === " "){
+            $query = "SELECT * FROM " . static::$tabla;
+        }
+        $query = $query . " ORDER BY " . $orden . " ASC LIMIT $registros OFFSET $offset " ;
+        //debuguear($query);
+        $resultado = self::consultarSQL($query);
+        return  $resultado;
+    } 
     
 
     // Busqueda Where con Columna 
@@ -245,6 +255,14 @@ class ActiveRecord {
         return ($resultado);
 
     }
+
+    //Devuelve la posición que tendrá un registro determinado en una busqueda por el $valor en $columna
+    public static function registerPosition($columna, $valor){
+        $query = "SELECT COUNT(*) FROM " . static::$tabla . " WHERE $columna <= '$valor'";
+        $resultado = self::$db->query($query);
+        $total = $resultado->fetch_array();
+        return array_shift($total);
+    } 
 
         //Traer el total de registros
         public static function total($columna = '', $valor=''){

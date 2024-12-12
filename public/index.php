@@ -6,6 +6,8 @@ use Controllers\AdminController;
 use Controllers\ApiController;
 use Controllers\LoginController;
 use Controllers\NavController;
+use Controllers\NoticiaController;
+use Controllers\UsuarioController;
 use MVC\Router;
 
 
@@ -46,20 +48,20 @@ $router = new Router();
     $router->get('/admin', [AdminController::class, 'admin']);
 
     //ADMINISTRACION de USUARIOS
-    $router->get('/admin/usuarios', [AdminController::class, 'usuarios']);
-    $router->get('/admin/buscausuario', [AdminController::class, 'buscausuario']);
-    $router->get('/admin/usuarios/eliminar', [AdminController::class, 'eliminarUsuario']);
-    $router->get('/admin/usuarios/actualizar', [AdminController::class, 'actualizarUsuario']);
-    $router->post('/admin/usuarios/actualizar', [AdminController::class, 'actualizarUsuario']);
+    $router->get('/admin/usuarios', [UsuarioController::class, 'usuarios']);
+    $router->get('/admin/buscausuario', [UsuarioController::class, 'buscausuario']);
+    $router->get('/admin/usuarios/eliminar', [UsuarioController::class, 'eliminarUsuario']);
+    $router->get('/admin/usuarios/actualizar', [UsuarioController::class, 'actualizarUsuario']);
+    $router->post('/admin/usuarios/actualizar', [UsuarioController::class, 'actualizarUsuario']);
 
     //ADMINISTRACION DE NOTICIAS
-    $router->get('/admin/noticias', [AdminController::class, 'noticias']);
-    $router->get('/admin/noticias/crear', [AdminController::class, 'nuevaNoticia']);
-    $router->post('/admin/noticias/crear', [AdminController::class, 'nuevaNoticia']);
-    $router->get('/admin/noticias/eliminar', [AdminController::class, 'eliminarNoticia']);
-    $router->get('/admin/noticias/actualizar', [AdminController::class, 'actualizarNoticia']);
-    $router->post('/admin/noticias/actualizar', [AdminController::class, 'actualizarNoticia']);
-    $router->post('/admin/noticias/foto', [AdminController::class, 'seleccionarFoto']);
+    $router->get('/admin/noticias', [NoticiaController::class, 'noticias']);
+    $router->get('/admin/noticias/crear', [NoticiaController::class, 'nuevaNoticia']);
+    $router->post('/admin/noticias/crear', [NoticiaController::class, 'nuevaNoticia']);
+    $router->get('/admin/noticias/eliminar', [NoticiaController::class, 'eliminarNoticia']);
+    $router->get('/admin/noticias/actualizar', [NoticiaController::class, 'actualizarNoticia']);
+    $router->post('/admin/noticias/actualizar', [NoticiaController::class, 'actualizarNoticia']);
+    $router->get('/admin/noticias/foto', [NoticiaController::class, 'seleccionarFoto']);
 
     //ADMINISTRACION DE GALERIAS
     $router->get('/admin/galerias', [AdminController::class, 'galerias']);

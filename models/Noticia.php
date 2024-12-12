@@ -25,7 +25,7 @@ class Noticia extends ActiveRecord{
         $this->cuerpo = $args['cuerpo'] ?? '';
         $this->fecha = $args['fecha'] ?? '';
         $this->idUsuario = $args['idUsuario'] ?? '';
-        $this->idFoto = $args['idFoto'] ?? '41';
+        $this->idFoto = $args['idFoto'] ?? '';
     }
 
     public function validarNuevaNoticia(){
@@ -47,6 +47,10 @@ class Noticia extends ActiveRecord{
         }else if(strlen($this->cuerpo)>= 10000){
             self::$alertas['error'][] = 'El cuerpo de la noticia es demasiado largo'; 
         }
+        if(!$this->idFoto){
+            self::$alertas['error'][] = 'No has elegido una fotografía para la noticia';
+        }
+
 
         return self::$alertas;
     }

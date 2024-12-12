@@ -71,7 +71,7 @@ class NavController{
 
         $galeriaAutor = GaleriaAutor::find($_GET['galery']);
         $fotografias = Fotografias::findXFromToWhitId('id', $inicioConsultaFotografias, 6, $_GET['galery']);
-        debuguear($fotografias);
+        
 
 
         $router->render('nav/galeriaFotografica', [

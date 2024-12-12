@@ -1,37 +1,46 @@
 <h2 class="encabezado_h2">Selecciona una fotografia</h2>
 
-
     
-<div class="muestraFotos">
-
-<?php
     
-    foreach($fotografias as $fotografia): 
-    foreach ($roots as $ruta){
-        if ($ruta[0] == $fotografia->idUsuario){
-            $nombreCarpeta = $ruta [1];
-        }
-    }
+    <div class="muestraFotos">
 
-
-    ?>
-      <!-- <?php
-        // debuguear($nombreCarpeta . '/' . trim($fotografia->ruta));
-    ?>   -->
-    <div class="contienefoto">
+    <?php
         
-        <img src="/imagenes/<?php echo $nombreCarpeta . '/' . trim($fotografia->ruta); ?>" id="<?php echo$fotografia->id ?>"class="adminFoto <?php if($fotografia->id == $_POST['idFoto']) {echo 'foto_selected';} ?>" alt="Foto Galeria">
-        <div class="fotoOpciones">
-            <span class="boton boton_seleccionar" data-value="<?php echo $fotografia->id ?>">Seleccionar</span>
-            
+        foreach($fotografias as $fotografia): 
+        ?>
+        <!-- <?php
+            // debuguear($nombreCarpeta . '/' . trim($fotografia->ruta));
+        ?>   -->
+            <div class="contienefoto">
+                
+                <img src="/imagenes/<?php echo $fotografia->carpeta . '/' . trim($fotografia->ruta); ?>" id="<?php echo$fotografia->id ?>"class="adminFoto <?php if($fotografia->id == $idFoto) {echo 'foto_selected';} ?>" alt="Foto Galeria">
+                <div class="fotoOpciones">
+                    <a 
+                        <?php 
+                        if($idNoticia){
+                        ?>
+                        href="/admin/noticias/actualizar?<?php echo 'id=' . $idNoticia . '&idFoto='. $fotografia->id?>";
+                        
+                        <?php }else{ ?>
+                        href="/admin/noticias/crear?<?php echo 'idFoto='. $fotografia->id?>";
+                        <?php } ?>
+                        
+
+                        class="boton boton_seleccionar" data-value="<?php echo $fotografia->id ?>">Seleccionar</a>
+                    
+                </div>
+                
+            </div>
+        
+        <?php 
+        endforeach; 
+        ?>
         </div>
-        
-    </div>
-<?php 
-endforeach; 
-
-?>
-        <form action="<?php if ($_POST['id']){ echo '/admin/noticias/actualizar?id=' . $_POST['id'];} else { echo '/admin/noticias/crear';} ?>" method="POST" class="formulario">
+        <div class="contenedor">
+        <?php
+        echo $paginacion; 
+        ?>  
+        <!-- <form action="<?php if ($_POST['id']){ echo '/admin/noticias/actualizar?id=' . $_POST['id'];} else { echo '/admin/noticias/crear';} ?>" method="POST" class="formulario">
         
             <input 
                 type="hidden"
@@ -83,8 +92,8 @@ endforeach;
 
             />
             <input type="submit" class="boton" value="<?php if ($_POST['id']){ echo 'Actualizar noticia';} else { echo 'Crear Noticia';} ?>">
-        </form>
-    </div>
+        </form>-->
+    </div> 
 
     <div class="contenedor retorno">
     <a href="/admin"><button class="boton">Administracion</button></a>
