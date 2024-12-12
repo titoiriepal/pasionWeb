@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Classes\Paginacion;
 use MVC\Router;
 use Model\Noticia;
 use Model\Usuario;
@@ -67,17 +68,57 @@ class NavController{
 
     public static function galeriaFotografica (Router $router){
 
-        $inicioConsultaFotografias = 0;
+        $galeriaNumero = $_GET['galery'];
+        $galeriaNumero = filter_var($galeriaNumero, FILTER_VALIDATE_INT);
 
-        $galeriaAutor = GaleriaAutor::find($_GET['galery']);
-        $fotografias = Fotografias::findXFromToWhitId('id', $inicioConsultaFotografias, 6, $_GET['galery']);
+        if(!$galeriaNumero){
+        header('Location:/');
+        }
+
+        $galeria = Galerias::find($galeriaNumero);
+        if(!$galeria){
+            header('Location:/');
+        }
+    
+        $galeria->usuario = Usuario::find($galeria->idUsuario);
+
+        //Validamos los parametros del get
+        $pagina_actual = $_GET['page'];
+        $orden = $_GET['order'] ?? 'id';
+        $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
+
+        //Comprobamos que exista la página enviada o que no sea menor que uno. Redirigimos a la primera página
+        if(!$pagina_actual  || $pagina_actual < 1){
+            header('Location: /galerias/galeria?page=1&galery='. $galeriaNumero);
+            $pagina_actual = 1;
+        }
+
+        //Nos devuelve el total de usuarios que tenemos según la busqueda
+        $total_registros = Fotografias::totalQuery(['idUsuario' => $galeriaNumero]);
+        $registros_por_pagina = 12; //Número de elementos que muestra cada página
+        $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros, $orden);
+
+        if($paginacion->total_paginas() < $pagina_actual){
+            header('Location: /galerias/galeria?page=1&galery='. $galeriaNumero);
+            $pagina_actual = 1;
+        }
+
+
+
+        $fotografias = Fotografias::paginar($registros_por_pagina, $paginacion->offset(),Fotografias::selectWhereArray(['idUsuario' => $galeriaNumero]), $orden);
+        //$fotografias = Fotografias::findXFromToWhitId('id', $inicioConsultaFotografias, 12, $_GET['galery']);
+        foreach ($fotografias as $fotografia){
+            $fotografia->url = nameCarpet($galeria->usuario->nombre, $galeria->usuario->apellidos) . '/' . trim($fotografia->ruta);
+        }
+        
         
 
 
         $router->render('nav/galeriaFotografica', [
             'title' => 'Galerías fotográficas',
-            'autor' => $galeriaAutor->autor,
-            'fotografias' => $fotografias
+            'galeria' => $galeria,
+            'fotografias' => $fotografias,
+            'paginacion' => $paginacion->paginacion()
         ]);
 
     }

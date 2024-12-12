@@ -2,9 +2,17 @@
 <h2>Galeria Fotografica</h2>
 
 <div class="container">
-    <h2 class="text-center">Galería de <?php echo $autor ?></h2>
-    <div class="lightbox-gallery">
-        <div>
+    <h2 class="text-center">Galería de <?php echo $galeria->usuario->nombre . ' ' . $galeria->usuario->apellidos ?></h2>
+
+    <div class="lightbox-gallery galeria">
+
+        <?php foreach ($fotografias as $fotografia) : ?>
+            
+            <div>
+                
+                <img src="/imagenes/<?php echo $fotografia->url; ?>" data-image-hd="/imagenes/<?php echo $fotografia->url; ?>" class="galeria__fotosmall "alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, quae, quam. Ut dolorum quia, unde dicta at harum porro officia obcaecati ipsam deserunt fugit dolore delectus quam, maxime nisi quo.">
+            </div>
+        <!-- <div>
             <img src="https://picsum.photos/id/343/300/300" data-image-hd="https://picsum.photos/id/343/600/600" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, quae, quam. Ut dolorum quia, unde dicta at harum porro officia obcaecati ipsam deserunt fugit dolore delectus quam, maxime nisi quo.">
         </div>
         <div>
@@ -22,9 +30,19 @@
         </div>
         <div>
             <img src="https://picsum.photos/id/101/300/300" data-image-hd="https://picsum.photos/id/101/600/600" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi suscipit quam, id aliquam totam aperiam quas rem debitis voluptatem pariatur, illo accusamus facilis eius ipsa! Reprehenderit libero, quas iste repudiandae distinctio, quos dignissimos.">
-        </div>
+        </div> -->
+
+        <?php endforeach; ?>
     </div>
+    <?php 
+    echo $paginacion; 
+    ?>  
   </div>
+  <div class="contenedor retorno">
+    <a href="/"><button class="boton">Inicio</button></a>
+    <a href="javascript:history.back()"><button class="boton" id="volver">Volver</button></a>
+            
+</div>
 
 
 <div class="text-center github-link">

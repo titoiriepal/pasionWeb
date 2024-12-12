@@ -19,11 +19,16 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
   }
   
   .lightbox-gallery div > img {
     max-width: 100%;
-    display: block;
+    display: inline-block;
+
+    &:hover{
+      cursor:pointer;
+    }
   }
   
   .lightbox-gallery div {
