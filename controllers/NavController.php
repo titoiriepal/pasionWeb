@@ -95,6 +95,10 @@ class NavController{
 
         //Nos devuelve el total de usuarios que tenemos según la busqueda
         $total_registros = Fotografias::totalQuery(['idUsuario' => $galeriaNumero]);
+        if($total_registros === "0"){
+            header('Location:/');
+            exit;
+        }
         $registros_por_pagina = 12; //Número de elementos que muestra cada página
         $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros, $orden);
 
