@@ -49,11 +49,11 @@ class NavController{
 
     public static function noticias (Router $router){
 
-        $noticiaAutor = NoticiaAutor::all();
+        $noticias = Noticia::all();
 
         $router->render('nav/noticias', [
             'title' => 'Noticias Pasión Iriépal',
-            'noticiaAutor' => $noticiaAutor
+            'noticias' => $noticias
         ]);
 
     }
@@ -109,11 +109,11 @@ class NavController{
         //$fotografias = Fotografias::findXFromToWhitId('id', $inicioConsultaFotografias, 12, $_GET['galery']);
         foreach ($fotografias as $fotografia){
             $fotografia->url = nameCarpet($galeria->usuario->nombre, $galeria->usuario->apellidos) . '/' . trim($fotografia->ruta);
+            if($fotografia->textAlt === ''){
+                $fotografia->textAlt = $galeria->textAlt;
+            }
         }
         
-        
-
-
         $router->render('nav/galeriaFotografica', [
             'title' => 'Galerías fotográficas',
             'galeria' => $galeria,

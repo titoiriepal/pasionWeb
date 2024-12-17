@@ -21,3 +21,15 @@
     
     
 }
+
+.boton--crearGaleria{
+    display:block;
+    width:100%;
+    &:hover{
+        cursor:pointer;
+    }
+    
+    @include m.mediaq(v.$tablet){
+        width:auto;
+    }
+}

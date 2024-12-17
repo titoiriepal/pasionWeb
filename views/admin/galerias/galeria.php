@@ -53,7 +53,9 @@
                     <input type="submit" class="eliminaFoto" value="Eliminar">
             
                 </form>
+                
             </div>
+            <button class="boton" id="textAlt" data-idfoto="<?php echo $fotografia->id; ?>">Texto Alternativo</button>
         </div>
     <?php endforeach; ?>
 
@@ -65,5 +67,5 @@
 </div>
 
 <?php
-$script = '';
+$script = '<script src="/build/js/textAlt.js"></script><script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
 ?>

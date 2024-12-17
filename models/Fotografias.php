@@ -7,7 +7,7 @@ class Fotografias extends ActiveRecord{
 
 
     protected static $tabla = 'fotografias';
-    protected static $columnasDB = ['id', 'ruta', 'fecha', 'muestra', 'idGaleria', 'idUsuario'];
+    protected static $columnasDB = ['id', 'ruta', 'fecha', 'muestra', 'idGaleria', 'idUsuario','textAlt'];
 
     public $id;
     public $ruta;
@@ -15,6 +15,7 @@ class Fotografias extends ActiveRecord{
     public $muestra;
     public $idGaleria;
     public $idUsuario;
+    public $textAlt;
 
     public function __construct($args= []){
 
@@ -24,11 +25,12 @@ class Fotografias extends ActiveRecord{
         $this->muestra = $args['muestra'] ?? '0';
         $this->idGaleria = $args['idGaleria'] ?? '';
         $this->idUsuario = $args['idUsuario'] ?? '';
+        $textAlt->$args['textAlt'] ?? '';
         
     }
 
     public static function arrayMuestras($columna, $valor) {
-        $query = "SELECT * FROM " . static::$tabla  ." WHERE ${columna} = '${valor}' and muestra = 1";
+        $query = "SELECT * FROM " . static::$tabla  ." WHERE $columna = '$valor' and muestra = 1";
         $resultado = self::consultarSQL($query);
         return  $resultado;
     }

@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/app.php';
 
 use Controllers\AdminController;
 use Controllers\ApiController;
+use Controllers\GaleriaController;
 use Controllers\LoginController;
 use Controllers\NavController;
 use Controllers\NoticiaController;
@@ -64,14 +65,15 @@ $router = new Router();
     $router->get('/admin/noticias/foto', [NoticiaController::class, 'seleccionarFoto']);
 
     //ADMINISTRACION DE GALERIAS
-    $router->get('/admin/galerias', [AdminController::class, 'galerias']);
-    $router->get('/admin/galerias/crear', [AdminController::class, 'crearGaleria']);
-    $router->post('/admin/galerias/crear', [AdminController::class, 'nuevaGaleria']);
-    $router->get('/admin/galerias/eliminar', [AdminController::class, 'eliminarGaleria']);
-    $router->get('/admin/galerias/galeria', [AdminController::class, 'editarGaleria']);
-    $router->post('/admin/galerias/galeria', [AdminController::class, 'editarGaleria']);
-    $router->post('/admin/galerias/galeria/eliminar', [AdminController::class, 'eliminarFotografia']);
-    $router->post('/admin/galerias/galeria/muestra', [AdminController::class, 'muestraFotografia']);
+    $router->get('/admin/galerias', [GaleriaController::class, 'galerias']);
+    $router->get('/admin/galerias/crear', [GaleriaController::class, 'crearGaleria']);
+    $router->post('/admin/galerias/nueva', [GaleriaController::class, 'nuevaGaleria']);
+    $router->get('/admin/galerias/eliminar', [GaleriaController::class, 'eliminarGaleria']);
+    $router->get('/admin/galerias/galeria', [GaleriaController::class, 'editarGaleria']);
+    $router->post('/admin/galerias/galeria', [GaleriaController::class, 'editarGaleria']);
+    $router->post('/admin/galerias/galeria/eliminar', [GaleriaController::class, 'eliminarFotografia']);
+    $router->post('/admin/galerias/galeria/muestra', [GaleriaController::class, 'muestraFotografia']);
+    $router->post('/admin/galerias/textoAlt', [GaleriaController::class, 'textoAlt']);
 
 
 

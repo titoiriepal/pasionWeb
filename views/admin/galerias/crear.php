@@ -33,13 +33,29 @@
         </thead>
 
         <tbody id="cuerpoTabla">
+            <?php foreach($usuarios as $usuario){ ?>
+            <tr>
+                <td>
+                    <?php echo $usuario->nombre . ' ' . $usuario->apellidos; ?>
+                </td>
+                <td>
+                    <p class="boton boton--crearGaleria" data-idusuario='<?php echo $usuario->id ?>'>Crear Galeria</p>
+                </td>
+            </tr>
+
+    <?php } ?>
         </tbody>
     </table>
 </div>
 
 <!-- Paginacion de usuarios -->
 <div  class="paginas">
-    <p><i id="btnPrev"class="fa-solid fa-circle-chevron-left"></i><span id="numeroPagina"></span><i id="btnNext" class="fa-solid fa-circle-chevron-right"></i></p>
+<?php 
+    echo $paginacion; 
+?>  
+
+
+    <!-- <p><i id="btnPrev"class="fa-solid fa-circle-chevron-left"></i><span id="numeroPagina"></span><i id="btnNext" class="fa-solid fa-circle-chevron-right"></i></p> -->
     
 </div>    <!--  fin Paginación de usuarios -->
 <!-- <div class="contenedor">
@@ -59,6 +75,8 @@
         <?php endforeach; ?>
     </ul>
 </div> -->
+
+
 
 <div class="contenedor retorno">
 <a href="/admin"><button class="boton">Administracion</button></a>

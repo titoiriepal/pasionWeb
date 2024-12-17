@@ -6,11 +6,12 @@
 
     <div class="lightbox-gallery galeria">
 
+
         <?php foreach ($fotografias as $fotografia) : ?>
             
             <div>
                 
-                <img src="/imagenes/<?php echo $fotografia->url; ?>" data-image-hd="/imagenes/<?php echo $fotografia->url; ?>" class="galeria__fotosmall "alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, quae, quam. Ut dolorum quia, unde dicta at harum porro officia obcaecati ipsam deserunt fugit dolore delectus quam, maxime nisi quo.">
+                <img src="/imagenes/<?php echo $fotografia->url; ?>" data-image-hd="/imagenes/<?php echo $fotografia->url; ?>" class="galeria__fotosmall "alt="<?php echo $fotografia->textAlt ?>">
             </div>
         <!-- <div>
             <img src="https://picsum.photos/id/343/300/300" data-image-hd="https://picsum.photos/id/343/600/600" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, quae, quam. Ut dolorum quia, unde dicta at harum porro officia obcaecati ipsam deserunt fugit dolore delectus quam, maxime nisi quo.">
