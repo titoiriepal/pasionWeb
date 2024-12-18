@@ -7,11 +7,9 @@
 }
 .contenedor-blogs{
 
-    
-    
-
     @include m.desktop {
         display:flex;
+        min-height: 70rem;
         
         border-bottom: 3px solid v.$morado;
         
@@ -19,17 +17,20 @@
 
     .imagen{
         position:relative;
+        bottom: 0rem;
         height: auto;
+        max-height: 83.5rem;
         width:50%;
         background-image: url(../img/cristox.png);
         background-repeat: no-repeat;
-        background-size:cover;
+        background-size:contain;
         
 
     }
 
     .blogs{
         padding: 1rem 2rem;
+        // margin-bottom: 2rem;
 
         @include m.desktop {
             width:50%;
@@ -39,8 +40,8 @@
         .blog{
             border: 2px solid v.$morado;
             border-radius: 8px;
-            padding: 2rem 1rem;
-            margin: 3rem 0;
+            padding: 1.5rem 1rem;
+            margin: 1.5rem 0;
             background-color: lighten(v.$morado, 8%);
 
             h3{

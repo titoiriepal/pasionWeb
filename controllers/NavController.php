@@ -3,13 +3,13 @@
 namespace Controllers;
 
 use Classes\Paginacion;
+use Model\Blog;
 use MVC\Router;
 use Model\Noticia;
 use Model\Usuario;
 use Model\Fotografias;
 use Model\Galerias;
-use Model\GaleriaAutor;
-use Model\NoticiaAutor;
+
 
 class NavController{
     
@@ -17,6 +17,7 @@ class NavController{
         $noticias = Noticia::all();
         $galerias = Galerias::all();
         $fotografias = Fotografias::all();
+        $blogs = Blog::all();
         
         $arrayMuestras = [];
         $arrayCarpetas = [];
@@ -33,6 +34,10 @@ class NavController{
             $i += 1;
           
         }
+
+        foreach ($blogs as $blog){
+            $blog->usuario = Usuario::find($blog->idUsuario);
+        }
    
 
         $router->render('nav/index', [
@@ -42,6 +47,7 @@ class NavController{
             'arrayMuestras' => $arrayMuestras,
             'arrayCarpetas' => $arrayCarpetas,
             'fotografias' => $fotografias,
+            'blogs' => $blogs,
             'guia'=> $guia
         ]);
 

@@ -64,23 +64,17 @@
 
         </div>
         <div class="blogs">
-            <div class="blog">
-                <h3>Blog 1</h3>
-                <h4>Autor</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                <p><a href="#">Ver más</a></p>
-            </div>
-            <div class="blog">
-                <h3>Blog 2</h3>
-                <h4>Autor</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p><a href="#">Ver más</a></p>
-            </div>
-            <div class="blog">
-                <h3>Blog 3</h3>
-                <h4>Autor</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                <p><a href="#">Ver más</a></p>
+            <?php foreach($blogs as $blog) { ?>
+        
+                <div class="blog">
+                    <h3><?php echo $blog->titulo; ?></h3>
+                    <h4><?php echo 'De ' . $blog->usuario->nombre . ' ' . $blog->usuario->apellidos; ?></h4>
+                    <p><?php echo $blog->fecha; ?></p>
+                    <p><a href="#">Ver más</a></p>
+                </div>
+            <?php } ?>
+            <div class="centrar">
+                <a href="" class="boton">Ver todos</a>
             </div>
         </div>
     </div>
