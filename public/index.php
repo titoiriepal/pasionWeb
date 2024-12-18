@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/app.php';
 
 use Controllers\AdminController;
 use Controllers\ApiController;
+use Controllers\BlogController;
 use Controllers\GaleriaController;
 use Controllers\LoginController;
 use Controllers\NavController;
@@ -76,19 +77,17 @@ $router = new Router();
     $router->post('/admin/galerias/textoAlt', [GaleriaController::class, 'textoAlt']);
 
 
-
-    $router->get('/admin/blogs', [AdminController::class, 'blogs']);
     $router->get('/admin/elenco', [AdminController::class, 'elenco']);
     $router->get('/admin/anteriores', [AdminController::class, 'anteriores']);
 
     //ADMINISTRACION DE BLOGS
 
-    $router->get('/admin/blogs', [GaleriaController::class, 'galerias']);
-    $router->get('/admin/blogs/crear', [GaleriaController::class, 'crearGaleria']);
-    $router->post('/admin/blogs/crear', [GaleriaController::class, 'nuevaGaleria']);
-    $router->get('/admin/blogs/editar', [GaleriaController::class, 'crearGaleria']);
-    $router->post('/admin/blogs/editar', [GaleriaController::class, 'nuevaGaleria']);
-    $router->get('/admin/blogs/eliminar', [GaleriaController::class, 'eliminarGaleria']);
+    $router->get('/admin/blogs', [BlogController::class, 'admin']);
+    $router->get('/admin/blogs/crear', [BlogController::class, 'crear']);
+    $router->post('/admin/blogs/crear', [BlogController::class, 'crear']);
+    $router->get('/admin/blogs/editar', [BlogController::class, 'editar']);
+    $router->post('/admin/blogs/editar', [BlogController::class, 'editar']);
+    $router->get('/admin/blogs/eliminar', [BlogController::class, 'eliminar']);
 
 
 //API de USUARIOS
