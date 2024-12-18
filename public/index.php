@@ -81,6 +81,15 @@ $router = new Router();
     $router->get('/admin/elenco', [AdminController::class, 'elenco']);
     $router->get('/admin/anteriores', [AdminController::class, 'anteriores']);
 
+    //ADMINISTRACION DE BLOGS
+
+    $router->get('/admin/blogs', [GaleriaController::class, 'galerias']);
+    $router->get('/admin/blogs/crear', [GaleriaController::class, 'crearGaleria']);
+    $router->post('/admin/blogs/crear', [GaleriaController::class, 'nuevaGaleria']);
+    $router->get('/admin/blogs/editar', [GaleriaController::class, 'crearGaleria']);
+    $router->post('/admin/blogs/editar', [GaleriaController::class, 'nuevaGaleria']);
+    $router->get('/admin/blogs/eliminar', [GaleriaController::class, 'eliminarGaleria']);
+
 
 //API de USUARIOS
 
