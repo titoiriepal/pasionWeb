@@ -15,7 +15,7 @@
                 <div class="listaDatos">
                     <span class="forte"><?php echo $noticia->titulo; ?></span>
                     <br>
-                    <span><?php echo 'Por' . $noticia->usuario->nombre . ' '. $noticia->usuario->apellido . ' el '. $noticia->fecha; ?></span>
+                    <span><?php echo 'Por' . $noticia->usuario->nombre . ' '. $noticia->usuario->apellidos . ' el '. $noticia->fecha; ?></span>
                 </div>
                 <div class="listaAcciones">
                     <a href="/admin/noticias/actualizar?id=<?php echo $noticia->id; ?>"" class="boton-amarillo">Editar</a>
