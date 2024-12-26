@@ -97,6 +97,7 @@ $router = new Router();
     $router->get('/admin/api/usuariosNoFoto', [ApiController::class, 'getUsuariosNoFoto']);
     $router->post('/admin/api/buscaUsuariosNoFoto', [ApiController::class, 'findUsuariosNoFoto']);
 
-
+    $router->post('/admin/api/obtenerFotografias', [ApiController::class, 'getFotos']);
+    $router->post('/admin/api/obtenerFotosTotales', [ApiController::class, 'getTotalFotos']);
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();

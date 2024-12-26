@@ -62,7 +62,6 @@ async function creaGaleria(e){
 async function creaNuevaGaleria(id) {
     const datos = new FormData();
         datos.append('id', id);
-        console.log(ruta + `/admin/galerias/nueva`);
         try{
             const url = ruta + `/admin/galerias/nueva`; 
             const resultado = await fetch(url, {

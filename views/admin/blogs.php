@@ -9,6 +9,10 @@
 </div>
 
 <div class="contenedor">
+    <?php if(empty($blogs)){ ?>
+        <h3 class="encabezado_h3">No hay blogs que mostrar</h3>
+    <?php } ?>
+    
     <ul class="listas">
     <?php foreach ($blogs as $blog): ?>
             <li>
@@ -26,6 +30,9 @@
         <?php endforeach; ?>
 
     </ul>
+    <?php 
+    echo $paginacion; 
+    ?>  
 </div>
 
 <div class="contenedor retorno">

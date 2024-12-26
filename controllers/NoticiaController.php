@@ -20,7 +20,6 @@ class NoticiaController{
         isAdmin();
         $alertas=[];
 
-        isAdmin();
         //Validamos los parametros del get
 
         if($_GET['noticia']){
