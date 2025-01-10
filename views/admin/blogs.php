@@ -19,7 +19,7 @@
                 <div class="listaDatos">
                     <span class="forte"><?php echo $blog->titulo; ?></span>
                     <br>
-                    <span><?php echo 'Por' . $blog->usuario->nombre . ' '. $blog->usuario->apellidos; ?></span>
+                    <span><?php echo 'Por ' . $blog->usuario->nombre . ' '. $blog->usuario->apellidos; ?></span>
                 </div>
                 <div class="listaAcciones">
                     <a href="/admin/blogs/editar?id=<?php echo $blog->id; ?>"" class="boton-amarillo">Editar</a>

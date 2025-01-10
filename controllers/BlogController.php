@@ -127,12 +127,64 @@ class BlogController{
             header('Location: /');
         }
 
+        $alertas=[];
+
+        $id = $_GET['id'];
+        if(!(is_numeric($id))){
+            header('Location: /admin/blogs');
+        }
+
+        $blog = Blog::find($id);
+        if($blog === null){
+            header('Location: /admin/noticias');
+        }
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $blog->sincronizar($_POST);
+            $alertas = $blog->validarNuevoBlog();
+
+            if(empty($alertas)){
+                $resultado = $blog->guardar();
+                if($resultado){
+                    //Noticia::setAlerta('exito','Noticia actualizada');
+                    header( 'Location:/admin/blogs?noticia=2&page=1');
+                    
+                }else{
+                    header( 'Location:/admin/blogs?noticia=4&page=1');
+                }
+            }
+        }
+
+        $alertas = Blog::getAlertas();
+
 
         //Mostramos la vista. Dependiendo de los permisos apareceran unos botones u otros resaltados
         $router->render('admin/blogs/editar', [
             'title' => 'Iriépal es pasión || Administracion Blogs',
+            'blog' => $blog,
+            'alertas' => $alertas
             
             
         ]);
+    }
+
+    public static function eliminar(){
+
+        isAdmin();
+
+        $id = $_GET['id'];
+        if(!(is_numeric($id))){
+            Blog::setAlerta('error', 'Error en los datos');
+            header('Location: /admin/blogs?noticia=4&page=1');
+        }
+        $noticia = Blog::find($id);
+        if ($noticia === null){
+            Blog::setAlerta('error', 'Error en los datos');
+            header('Location:/admin/blogs?noticia=4&page=1');
+            
+        }
+
+        $noticia->eliminar();
+        header('Location:/admin/blogs?noticia=3&page=1');
     }
 }

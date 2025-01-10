@@ -265,12 +265,12 @@ class NoticiaController{
 
         $id = $_GET['id'];
         if(!(is_numeric($id))){
-            NoticiaAutor::setAlerta('error', 'Error en los datos');
+            Noticia::setAlerta('error', 'Error en los datos');
             header('Location: /admin/noticias');
         }
         $noticia = Noticia::find($id);
         if ($noticia === null){
-            NoticiaAutor::setAlerta('error', 'Error en los datos');
+            Noticia::setAlerta('error', 'Error en los datos');
             header('Location:/admin/noticias?noticia=4&page=1');
             
         }
