@@ -4,17 +4,28 @@
 
 
 <div class="contenedor">
-    <ul class="listas">
-        <?php foreach ($noticiaAutor as $registro): ?>
-            <li>
-                <div class="listaDatos">
-                    <span class="forte"><?php echo $registro->titulo; ?></span>
+    <ul class="listaNoticias">
+        <?php foreach ($noticias as $registro): ?>
+            <li class="navNoticias">
+                <div class="noticiaNav">
+                    <div class="imagenNoticia">
+                        <img src="/imagenes/<?php echo $registro->foto->url; ?>" height="217" width="auto" alt="<?php echo $registro->foto->textAlt; ?>" />
+                    </div>
+                    <div class="cuerpoNoticia">
+                        <h3 class="tituloNoticia"><?php echo $registro->titulo; ?></h3>
+                        <p class="resumenNoticia"><?php echo $registro->resumen; ?></p>
+                        <div class="noticias_acciones">
+                            <a href="/noticia?id=<?php echo $registro->id; ?>"" class="boton">Ver Noticia</a> 
+                        </div>
+                    </div>
+                    <!-- <span class="forte"><?php echo $registro->titulo; ?></span>
                     <br>
-                    <span><?php echo 'Por' . $registro->autor . ' el '. $registro->fecha; ?></span>
+                    <span><?php echo 'Por ' . $registro->usuario->nombre . ' '. $registro->usuario->apellidos . ' el '. $registro->fecha; ?></span>
+                </div>-->
+               
+         
                 </div>
-                <div class="listaAcciones">
-                    <a href="/noticia?id=<?php echo $registro->id; ?>"" class="boton">Ver Noticia</a>
-                </div>
+
 
             </li>
         <?php endforeach; ?>

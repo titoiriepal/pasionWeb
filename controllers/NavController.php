@@ -56,6 +56,20 @@ class NavController{
     public static function noticias (Router $router){
 
         $noticias = Noticia::all();
+        foreach($noticias as $noticia){
+            $usuario = Usuario::find($noticia->idUsuario); 
+            $noticia->usuario = New Usuario();
+            $noticia->usuario->nombre = $usuario->nombre;
+            $noticia->usuario->apellidos = $usuario->apellidos;
+
+            $fotografia = Fotografias::find($noticia->idFoto);
+            $usuarioFoto = Usuario::find($fotografia->idUsuario);
+            $fotografia->url = nameCarpet($usuarioFoto->nombre, $usuarioFoto->apellidos) . '/' . trim($fotografia->ruta);
+            if($fotografia->textAlt === ''){
+                $fotografia->textAlt = 'Fotografía de la noticia ' . $noticia->titulo . ' realizada por '. $usuarioFoto->nombre . ' ' . $usuarioFoto->apellidos;
+            }
+            $noticia->foto = $fotografia;
+        }
 
         $router->render('nav/noticias', [
             'title' => 'Noticias Pasión Iriépal',
