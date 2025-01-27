@@ -9,50 +9,42 @@
     <h2 class="titulo">Galerías fotográficas</h2>
     <div class="contenedor galerias">
 
-    <?php  
-        $arrayIndex = 0;
-        foreach($galerias as $galeria):
-    ?>
-        <a href="/galerias/galeria?galery=<?php echo $galeria->id ?>">
-            <div class="galeria">
-                <h3><?php echo $galeria->usuario->nombre . ' ' . $galeria->usuario->apellidos ?></h3>
-                <div class="slider">
-                    <div class="slide-track2">
-                        <?php foreach($arrayMuestras[$arrayIndex] as $muestra):
-                            $ruta = $arrayCarpetas[$arrayIndex] . trim($muestra->ruta);
-                        ?>
-                            <div class="slide">
-                                <img src="<?php echo $ruta ?>" height="217" width="325" alt="" />
-                            </div>
-                        <?php    
-                        endforeach;    
-                        ?>
-                        <?php foreach($arrayMuestras[$arrayIndex] as $muestra):
-                            $ruta = $arrayCarpetas[$arrayIndex] . trim($muestra->ruta);
-                        ?>
-                            <div class="slide">
-                                <img src="<?php echo $ruta ?>" height="217" width="325" alt="" />
-                            </div>
-                        <?php    
-                        endforeach;    
-                        ?>
-                    
+        <?php  
+            $arrayIndex = 0;
+            foreach($galerias as $galeria):
+        ?>
+            <a href="/galerias/galeria?galery=<?php echo $galeria->id ?>">
+                <div class="galeria">
+                    <h3><?php echo $galeria->usuario->nombre . ' ' . $galeria->usuario->apellidos ?></h3>
+                    <div class="slider">
+                        <div class="slide-track2">
+                            <?php foreach($arrayMuestras[$arrayIndex] as $muestra):
+                                $ruta = $arrayCarpetas[$arrayIndex] . trim($muestra->ruta);
+                            ?>
+                                <div class="slide">
+                                    <img src="<?php echo $ruta ?>" height="217" width="325" alt="" />
+                                </div>
+                            <?php    
+                            endforeach;    
+                            ?>
+                            <?php foreach($arrayMuestras[$arrayIndex] as $muestra):
+                                $ruta = $arrayCarpetas[$arrayIndex] . trim($muestra->ruta);
+                            ?>
+                                <div class="slide">
+                                    <img src="<?php echo $ruta ?>" height="217" width="325" alt="" />
+                                </div>
+                            <?php    
+                            endforeach;    
+                            ?>
+                        
+                        </div>
                     </div>
                 </div>
-            </div>
-        </a>
-    
-
-    <?php
-        $arrayIndex += 1;
-        endforeach;
-    ?>
-
-
-
-
-    
-
+            </a>
+        <?php
+            $arrayIndex += 1;
+            endforeach;
+        ?>
     </div>
 
 </section>
@@ -64,23 +56,17 @@
 
         </div>
         <div class="blogs">
-            <div class="blog">
-                <h3>Blog 1</h3>
-                <h4>Autor</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                <p><a href="#">Ver más</a></p>
-            </div>
-            <div class="blog">
-                <h3>Blog 2</h3>
-                <h4>Autor</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p><a href="#">Ver más</a></p>
-            </div>
-            <div class="blog">
-                <h3>Blog 3</h3>
-                <h4>Autor</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                <p><a href="#">Ver más</a></p>
+            <?php foreach($blogs as $blog) { ?>
+        
+                <div class="blog">
+                    <h3><?php echo $blog->titulo; ?></h3>
+                    <h4><?php echo 'De ' . $blog->usuario->nombre . ' ' . $blog->usuario->apellidos; ?></h4>
+                    <p><?php echo $blog->fecha; ?></p>
+                    <p><a href="/blogs/blog?id=<?php echo $blog->id ?>">Ver más</a></p>
+                </div>
+            <?php } ?>
+            <div class="centrar">
+                <a href="/blogs" class="boton">Ver todos</a>
             </div>
         </div>
     </div>
@@ -132,7 +118,7 @@
             <p class="personaje">Dirección de Cordinación</p>
         </div>
     </div>
-    <p class="center"><a href="#" class="boton">Ver Todo</a></p>
+    <p class="center"><a href="/elenco" class="boton">Ver Todo</a></p>
 </section>
 
 <section class="edicionesAnteriores" id="edicionesAnteriores">
@@ -170,6 +156,7 @@
 $script = '
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/build/js/noticias.js"></script>  
+    <script src="/build/js/regresivo.js"></script> 
     
    
 ';

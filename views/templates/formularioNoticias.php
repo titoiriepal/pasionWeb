@@ -1,8 +1,5 @@
 <div class="contenedor noticias">
-    <form 
-    
-     
-     method="POST" class="formulario">
+    <form method="POST" class="formulario">
     
 
             <input 

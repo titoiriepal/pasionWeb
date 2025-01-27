@@ -7,11 +7,9 @@
 }
 .contenedor-blogs{
 
-    
-    
-
     @include m.desktop {
         display:flex;
+        min-height: 70rem;
         
         border-bottom: 3px solid v.$morado;
         
@@ -19,17 +17,20 @@
 
     .imagen{
         position:relative;
+        bottom: 0rem;
         height: auto;
+        max-height: 83.5rem;
         width:50%;
         background-image: url(../img/cristox.png);
         background-repeat: no-repeat;
-        background-size:cover;
+        background-size:contain;
         
 
     }
 
     .blogs{
         padding: 1rem 2rem;
+        // margin-bottom: 2rem;
 
         @include m.desktop {
             width:50%;
@@ -39,8 +40,8 @@
         .blog{
             border: 2px solid v.$morado;
             border-radius: 8px;
-            padding: 2rem 1rem;
-            margin: 3rem 0;
+            padding: 1.5rem 1rem;
+            margin: 1.5rem 0;
             background-color: lighten(v.$morado, 8%);
 
             h3{
@@ -71,4 +72,90 @@
     }
 
     
+}
+
+
+.contentBlog{
+    text-align: center;
+}
+
+.pictureBlog{
+    max-width:30rem;
+    max-height:22.5rem;
+    @include m.mediaq(v.$telefono){
+        float: left;
+        margin-left: 3rem;
+        margin-right: 2rem; 
+        max-width: 40rem;
+        max-height:30rem;
+
+
+    }
+    
+}
+
+.textoBlog{
+    text-align:left;
+    color:v.$morado;
+    text-transform:capitalize;
+    font-family:v.$encabezados;
+    white-space:pre-line;
+    text-indent:15px;
+
+
+}
+
+.resumen{
+    text-align: justify;
+    text-indent:4rem;
+    font-family: v.$fuente_principal;
+    font-weight: bold;
+    font-size: 2rem; 
+
+    @include m.mediaq(v.$telefono){
+        text-align:left;
+    }
+
+    @include m.mediaq(v.$tablet){
+        font-size: 2.5rem;
+    }
+
+
+    
+}
+
+
+
+.listaBlog{
+    padding-inline-start:0px;
+    margin: 1rem;
+    text-align: center;
+    display:grid;
+    justify-items: center;
+
+    @include m.mediaq(v.$tablet){
+        @include m.grid(2, 1rem);
+        
+    }
+
+    @include m.mediaq(v.$desktop){
+        @include m.grid(3, 1rem);
+    }
+
+
+    
+    
+    
+}
+.entradaBlog{
+    background-color:v.$blanco;
+    border: 2.5px solid v.$morado;
+    border-radius: .8rem;
+    display:flex;
+    flex-direction: column;
+    max-width: 33.3rem;
+}
+
+.imagen_blog{
+    padding: 1.4rem;
 }

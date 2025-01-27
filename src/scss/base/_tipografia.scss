@@ -18,13 +18,18 @@ h2 {
     
     &.encabezado_h2{
         margin-top: 4rem;
+        
     }
 }
 h3 {
     font-size: 2rem;
     text-align: center;
     @include m.tablet {
-        font-size: 3.5rem;
+        font-size: 2.4rem;
+    }
+
+    &.encabezado_h3{
+        margin-top: 3rem;
     }
 }
 

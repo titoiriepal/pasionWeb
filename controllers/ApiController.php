@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Model\Fotografias;
 use Model\Usuario;
 
 class ApiController{
@@ -12,6 +13,27 @@ class ApiController{
 
         
     }
+
+    public static function getFotos(){
+        $inicio = s($_POST['inicio']);
+        $registros = s($_POST['registros']);
+
+        $fotografias = Fotografias::paginar($registros,$inicio);
+        foreach ($fotografias as $fotografia){
+            $usuario = Usuario::find($fotografia->idUsuario);
+            $nombreCarpeta = nameCarpet($usuario->nombre, $usuario->apellidos);
+            $fotografia->carpeta = '/' . CARPETA_IMAGENES_INDEX . '/' . $nombreCarpeta.'/'.$fotografia->ruta;
+        }
+
+        echo json_encode(($fotografias));
+
+    }
+
+    public static function getTotalFotos(){
+        $fotosTotales = Fotografias::total();
+        echo json_encode($fotosTotales);
+    }
+
 
     public static function findUsuarios(){
         $cadena = s($_POST['cadena']);
