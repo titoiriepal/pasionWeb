@@ -48,15 +48,12 @@
             $contador = 0;
             foreach($noticias as $noticia):
                 
-                $indexFoto = array_search($noticia->idFoto, array_column($fotografias, 'id'));
-                $user = $fotografias[$indexFoto]->idUsuario;
-                $root = $guia[$user] . trim($fotografias[$indexFoto]->ruta);
 
             ?>
                 <li><p><strong><?php echo $noticia->titulo ?></strong></p><p><?php echo $noticia->resumen ?></p>
 
                 
-                <a href="#"><img class="imagen-noticia" src='<?php echo $root ?>' alt="Noticia"></a>
+                <a href="#"><img class="imagen-noticia" src="/imagenes/<?php echo $noticia->foto->url ?>" alt="<?php echo $noticia->foto->textAlt ?>"></a>
                 
                 </li>
 

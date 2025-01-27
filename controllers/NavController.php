@@ -18,6 +18,24 @@ class NavController{
         $galerias = Galerias::all();
         $fotografias = Fotografias::all();
         $blogs = Blog::get(3);
+
+        foreach($noticias as $noticia){
+            $usuario = Usuario::find($noticia->idUsuario); 
+            $noticia->usuario = New Usuario();
+            $noticia->usuario->nombre = $usuario->nombre;
+            $noticia->usuario->apellidos = $usuario->apellidos;
+            $noticia->fecha = date("d/m/Y", strtotime($noticia->fecha));
+
+            $fotografia = Fotografias::find($noticia->idFoto);
+            $usuarioFoto = Usuario::find($fotografia->idUsuario);
+            $fotografia->url = nameCarpet($usuarioFoto->nombre, $usuarioFoto->apellidos) . '/' . trim($fotografia->ruta);
+            if($fotografia->textAlt === ''){
+                $fotografia->textAlt = 'Fotografía de la noticia ' . $noticia->titulo . ' realizada por '. $usuarioFoto->nombre . ' ' . $usuarioFoto->apellidos;
+            }
+            $noticia->foto = $fotografia;
+        }
+
+        
         
         $arrayMuestras = [];
         $arrayCarpetas = [];

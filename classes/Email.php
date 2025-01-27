@@ -22,14 +22,14 @@ class Email{
 
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'smtp.mailtrap.io';
+        $mail->Host = $_ENV['EMAIL_HOST'];
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '7c9488e49c4f96';
-        $mail->Password = '84f7f866fa2635';
+        $mail->Port = $_ENV['EMAIL_PORT'];
+        $mail->Username = $_ENV['EMAIL_USER'];
+        $mail->Password = $_ENV['EMAIL_PASS'];
 
-        $mail->setFrom('cuentas@iriepalespasion.com');
-        $mail->addAddress($this->email, 'IriepalEsPasion.com');
+        $mail->setFrom('administracion@iriepalpasion.com');
+        $mail->addAddress($this->email, 'iriepalpasion.com');
         $mail->Subject = 'Reestablece tu contraseña';
 
         //Set HTML
@@ -57,14 +57,14 @@ class Email{
 
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'smtp.mailtrap.io';
+        $mail->Host = $_ENV['EMAIL_HOST'];
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '7c9488e49c4f96';
-        $mail->Password = '84f7f866fa2635';
+        $mail->Port = $_ENV['EMAIL_PORT'];
+        $mail->Username = $_ENV['EMAIL_USER'];
+        $mail->Password = $_ENV['EMAIL_PASS'];
 
-        $mail->setFrom('cuentas@iriepalespasion.com');
-        $mail->addAddress($this->email, 'IriepalEsPasion.com');
+        $mail->setFrom('administracion@iriepalpasion.com');
+        $mail->addAddress($this->email, 'iriepalpasion.com');
         $mail->Subject = 'Confirma tu cuenta';
 
         //Set HTML
@@ -81,7 +81,9 @@ class Email{
         $mail->Body = $contenido;
 
         //Enviar el mail
-        $mail->send();
+        $resultado = $mail->send();
+
+        
 
 
     }
