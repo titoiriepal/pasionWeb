@@ -73,3 +73,89 @@
 
     
 }
+
+
+.contentBlog{
+    text-align: center;
+}
+
+.pictureBlog{
+    max-width:30rem;
+    max-height:22.5rem;
+    @include m.mediaq(v.$telefono){
+        float: left;
+        margin-left: 3rem;
+        margin-right: 2rem; 
+        max-width: 40rem;
+        max-height:30rem;
+
+
+    }
+    
+}
+
+.textoBlog{
+    text-align:left;
+    color:v.$morado;
+    text-transform:capitalize;
+    font-family:v.$encabezados;
+    white-space:pre-line;
+    text-indent:15px;
+
+
+}
+
+.resumen{
+    text-align: justify;
+    text-indent:4rem;
+    font-family: v.$fuente_principal;
+    font-weight: bold;
+    font-size: 2rem; 
+
+    @include m.mediaq(v.$telefono){
+        text-align:left;
+    }
+
+    @include m.mediaq(v.$tablet){
+        font-size: 2.5rem;
+    }
+
+
+    
+}
+
+
+
+.listaBlog{
+    padding-inline-start:0px;
+    margin: 1rem;
+    text-align: center;
+    display:grid;
+    justify-items: center;
+
+    @include m.mediaq(v.$tablet){
+        @include m.grid(2, 1rem);
+        
+    }
+
+    @include m.mediaq(v.$desktop){
+        @include m.grid(3, 1rem);
+    }
+
+
+    
+    
+    
+}
+.entradaBlog{
+    background-color:v.$blanco;
+    border: 2.5px solid v.$morado;
+    border-radius: .8rem;
+    display:flex;
+    flex-direction: column;
+    max-width: 33.3rem;
+}
+
+.imagen_blog{
+    padding: 1.4rem;
+}

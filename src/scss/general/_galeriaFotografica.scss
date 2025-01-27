@@ -1,3 +1,6 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
 .container {
     max-width: 800px;
     margin: 5% auto;
@@ -58,13 +61,27 @@
     top: 0;
     left: 0;
     z-index: 20;
-    padding-top: 30px;
+    padding: 3rem;
     box-sizing: border-box;
+    min-width:35rem;
+    scroll-behavior: smooth;
   }
   
   .lightbox img {
     display: block;
     margin: auto;
+
+    @include m.mediaq(v.$telefono){
+      height:80%;
+      max-height: 30.1rem;
+    }
+
+    @include m.mediaq(v.$tablet){
+      height:100%;
+      max-height: 46.6rem;
+    }
+
+    
   }
   
   .lightbox .caption {

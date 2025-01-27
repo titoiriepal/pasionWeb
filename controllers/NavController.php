@@ -14,10 +14,10 @@ use Model\Galerias;
 class NavController{
     
     public static function index (Router $router){
-        $noticias = Noticia::all();
+        $noticias = Noticia::get(5);
         $galerias = Galerias::all();
         $fotografias = Fotografias::all();
-        $blogs = Blog::all();
+        $blogs = Blog::get(3);
         
         $arrayMuestras = [];
         $arrayCarpetas = [];
@@ -55,12 +55,30 @@ class NavController{
 
     public static function noticias (Router $router){
 
-        $noticias = Noticia::all();
+        $pagina_actual = $_GET['page'];
+        $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
+
+        if(!$pagina_actual  || $pagina_actual < 1){
+            header('Location: /noticias?page=1');
+            $pagina_actual = 1;
+        }
+
+        $total_registros = Noticia::total();
+        $registros_por_pagina = 5;
+        $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros);
+
+        if($paginacion->total_paginas() < $pagina_actual){
+            header('Location: /noticias?page=1');
+            $pagina_actual = 1;
+        }
+
+        $noticias = Noticia::paginar($registros_por_pagina, $paginacion->offset());
         foreach($noticias as $noticia){
             $usuario = Usuario::find($noticia->idUsuario); 
             $noticia->usuario = New Usuario();
             $noticia->usuario->nombre = $usuario->nombre;
             $noticia->usuario->apellidos = $usuario->apellidos;
+            $noticia->fecha = date("d/m/Y", strtotime($noticia->fecha));
 
             $fotografia = Fotografias::find($noticia->idFoto);
             $usuarioFoto = Usuario::find($fotografia->idUsuario);
@@ -73,7 +91,9 @@ class NavController{
 
         $router->render('nav/noticias', [
             'title' => 'Noticias Pasión Iriépal',
-            'noticias' => $noticias
+            'noticias' => $noticias,
+            'paginacion' => $paginacion->paginacion()
+
         ]);
 
     }
@@ -149,10 +169,118 @@ class NavController{
 
     public static function blogs (Router $router){
 
+        $pagina_actual = $_GET['page'];
+        $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
+
+        if(!$pagina_actual  || $pagina_actual < 1){
+            header('Location: /blogs?page=1');
+            $pagina_actual = 1;
+        }
+
+        $total_registros = Blog::total();
+        $registros_por_pagina = 6;
+        $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros);
+
+        if($paginacion->total_paginas() < $pagina_actual){
+            header('Location: /blogs?page=1');
+            $pagina_actual = 1;
+        }
+
+        $blogs = Blog::paginar($registros_por_pagina, $paginacion->offset());
+
+        foreach($blogs as $blog){
+            $usuario = Usuario::find($blog->idUsuario); 
+            $blog->usuario = New Usuario();
+            $blog->usuario->nombre = $usuario->nombre;
+            $blog->usuario->apellidos = $usuario->apellidos;
+            $blog->fecha = date("d/m/Y", strtotime($blog->fecha));
+
+            $fotografia = Fotografias::find($blog->idFoto);
+            $usuarioFoto = Usuario::find($fotografia->idUsuario);
+            $fotografia->url = nameCarpet($usuarioFoto->nombre, $usuarioFoto->apellidos) . '/' . trim($fotografia->ruta);
+            if($fotografia->textAlt === ''){
+                $fotografia->textAlt = 'Fotografía del blog ' . $blog->titulo . ' realizada por '. $usuarioFoto->nombre . ' ' . $usuarioFoto->apellidos;
+            }
+            $blog->foto = $fotografia;
+        }
+
+        
+
         $router->render('nav/blogs', [
-            'title' => 'Blogs Pasión'
+            'title' => 'Blogs Pasión',
+            'blogs'=>$blogs,
+            'paginacion' => $paginacion->paginacion()
         ]);
 
+    }
+
+    public static function blog (Router $router){
+
+        $blogId = $_GET['id'];
+        $blogId = filter_var($blogId, FILTER_VALIDATE_INT);
+
+        if(!$blogId){
+        header('Location:/');
+        }
+
+        $blog = Blog::find($blogId);
+        if(!$blog){
+            header('Location:/');
+        }
+    
+        $blog->usuario = Usuario::find($blog->idUsuario);
+        $blog->fecha = date('d/m/Y', strtotime($blog->fecha));
+
+        $fotografia = Fotografias::find($blog->idFoto);
+            $usuarioFoto = Usuario::find($fotografia->idUsuario);
+            $fotografia->url = nameCarpet($usuarioFoto->nombre, $usuarioFoto->apellidos) . '/' . trim($fotografia->ruta);
+            if($fotografia->textAlt === ''){
+                $fotografia->textAlt = 'Fotografía de la noticia ' . $blog->titulo . ' realizada por '. $usuarioFoto->nombre . ' ' . $usuarioFoto->apellidos;
+            }
+            $blog->foto = $fotografia;
+        $blog->formatText = explode("\n", $blog->cuerpo);
+        // $blog->formatText = array_map('trim', $blog->formatText);
+        //debuguear($blog->formatText);
+
+        $router->render('nav/blog', [
+            'title' => 'Blog Pasión',
+            'blog' => $blog,
+        ]);
+    }
+
+    public static function noticia (Router $router){
+
+        $noticiaId = $_GET['id'];
+        $noticiaId = filter_var($noticiaId, FILTER_VALIDATE_INT);
+
+        if(!$noticiaId){
+        header('Location:/');
+        }
+
+        $noticia = Noticia::find($noticiaId);
+        if(!$noticia){
+            header('Location:/');
+        }
+    
+        $noticia->usuario = Usuario::find($noticia->idUsuario);
+        $noticia->fecha = date('d/m/Y', strtotime($noticia->fecha));
+
+        $fotografia = Fotografias::find($noticia->idFoto);
+            $usuarioFoto = Usuario::find($fotografia->idUsuario);
+            $fotografia->url = nameCarpet($usuarioFoto->nombre, $usuarioFoto->apellidos) . '/' . trim($fotografia->ruta);
+            if($fotografia->textAlt === ''){
+                $fotografia->textAlt = 'Fotografía de la noticia ' . $noticia->titulo . ' realizada por '. $usuarioFoto->nombre . ' ' . $usuarioFoto->apellidos;
+            }
+            $noticia->foto = $fotografia;
+        $noticia->formatResumen =explode("\n", $noticia->resumen);
+        $noticia->formatText = explode("\n", $noticia->cuerpo);
+        // $blog->formatText = array_map('trim', $blog->formatText);
+        //debuguear($blog->formatText);
+
+        $router->render('nav/noticia', [
+            'title' => 'Blog Pasión',
+            'noticia' => $noticia,
+        ]);
     }
 
     public static function elenco (Router $router){
@@ -169,5 +297,14 @@ class NavController{
             'title' => 'Elenco Pasión'
         ]);
 
+    }
+
+    public static function error(Router $router){
+
+        // Render a la vista 
+        $router->render('nav/error', [
+            'titulo' => 'Página no encontrada',
+            
+        ]);
     }
 }

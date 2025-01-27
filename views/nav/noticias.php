@@ -13,6 +13,7 @@
                     </div>
                     <div class="cuerpoNoticia">
                         <h3 class="tituloNoticia"><?php echo $registro->titulo; ?></h3>
+                        <h4 class="infoNoticia"><?php echo 'Por ' . $registro->usuario->nombre . ' ' . $registro->usuario->apellidos . ' el ' . $registro->fecha; ?></h4>
                         <p class="resumenNoticia"><?php echo $registro->resumen; ?></p>
                         <div class="noticias_acciones">
                             <a href="/noticia?id=<?php echo $registro->id; ?>"" class="boton">Ver Noticia</a> 
@@ -30,7 +31,13 @@
             </li>
         <?php endforeach; ?>
     </ul>
+
+    <?php 
+    echo $paginacion; 
+    ?>  
+
 </div>
+
 
 <div class="contenedor retorno">
     <a href="/"><button class="boton">Página principal</button></a>

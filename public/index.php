@@ -45,6 +45,12 @@ $router = new Router();
 // GALERIAS FOTOGRAFICAS
     $router->get('/galerias/galeria', [NavController::class, 'galeriaFotografica']);
 
+// BLOGS
+    $router->get('/blogs/blog', [NavController::class, 'blog']);
+
+// NOTICIAS
+$router->get('/noticia', [NavController::class, 'noticia']);
+
 // SECCION ADMINISTRACIÓN
 
     $router->get('/admin', [AdminController::class, 'admin']);
@@ -99,5 +105,9 @@ $router = new Router();
 
     $router->post('/admin/api/obtenerFotografias', [ApiController::class, 'getFotos']);
     $router->post('/admin/api/obtenerFotosTotales', [ApiController::class, 'getTotalFotos']);
+
+//ERRORES
+
+$router->get('/404', [NavController::class, 'error']);
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();
