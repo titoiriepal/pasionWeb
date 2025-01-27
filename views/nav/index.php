@@ -7,14 +7,18 @@
 
 <section class="seccion-galerias" id="galeria">
     <h2 class="titulo">Galerías fotográficas</h2>
-    <div class="contenedor galerias">
-
         <?php  
-            $arrayIndex = 0;
             if(empty($galerias)){ ?>
             <h3 class="center">No hay resultados disponibles</h3>
         <?php
             }
+        ?>
+    
+    <div class="contenedor galerias">
+
+        
+        <?php
+            $arrayIndex = 0;
             foreach($galerias as $galeria):
         ?>
             <a href="/galerias/galeria?galery=<?php echo $galeria->id ?>">
