@@ -235,7 +235,7 @@ class GaleriaController{
 
         //Contamos todos los registros que existen de Usuarios y creamos la paginación
         $total_registros = Usuario::totalQuery(['fotografo' => 0]);
-        $registros_por_pagina = 5;
+        $registros_por_pagina = 10;
         $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros, $orden);
 
         //Si la página actual es mayor al número de páginas totales, redirigimos a la primera página
@@ -265,6 +265,53 @@ class GaleriaController{
             'paginacion' => $paginacion->paginacion()
         ]);
         
+    }
+
+    public static function buscaCrearGaleria(Router $router){
+        isAdmin();
+        // debuguear($_POST);
+        $pagina_actual = $_GET['page'];
+        $orden = $_GET['order'] ?? 'id';
+        $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
+
+        //Comprobamos que exista la página enviada o que no sea menor que uno. Redirigimos a la primera página
+        if(!$pagina_actual  || $pagina_actual < 1){
+            header('Location: /admin/galerias/busquedaCrear?busqueda='. $_GET["busqueda"] .'&page=1');
+            $pagina_actual = 1;
+        }
+
+        $total_registros = Usuario::totalQuery(['nombre' => $_GET["busqueda"],'apellidos' => $_GET["busqueda"],'email' => $_GET["busqueda"],'CONCAT(nombre, " ", apellidos)' => $_GET["busqueda"]]);
+
+        $registros_por_pagina = 10;
+        $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros, $orden);
+
+        //Si la página actual es mayor al número de páginas totales, redirigimos a la primera página
+        if($paginacion->total_paginas() < $pagina_actual){
+            header('Location: /admin/galerias/busquedaCrear?busqueda='. $_GET["busqueda"] .'&page=1');
+            $pagina_actual = 1;
+        }
+
+        $usuarios = Usuario::paginar($registros_por_pagina, $paginacion->offset(),Usuario::selectWhereArray(['nombre' => $_GET["busqueda"],'apellidos' => $_GET["busqueda"],'email' => $_GET["busqueda"],'CONCAT(nombre, " ", apellidos)' => $_GET["busqueda"]]), $orden);
+
+        //Si no hay resultados de busqueda redirigimos a la página de Crear
+        if(!$usuarios)
+        {
+            header('Location: /admin/galerias/crear?page=1');
+            exit;
+        }
+
+        $alertas = [];
+ 
+
+        $router->render('admin/galerias/crear', [
+            'title' => 'Iriépal es pasión || Crear Galeria',
+            'usuarios' => $usuarios,
+            'alertas' => $alertas,
+            'paginacion' => $paginacion->paginacion()
+        ]);
+
+
+
     }
 
     public static function nuevaGaleria(){ //Crea una nueva galería y devuelve el usuario para el que se creo la galería

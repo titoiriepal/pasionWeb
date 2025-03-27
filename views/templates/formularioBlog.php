@@ -16,22 +16,22 @@
                 <span class="boton" id="abrirModalFoto">Seleccionar Fotografia</span>
 
                 <div id="ventanaModal" class="modal">
-                <div class="contenido-modal">
-                    <span class="close">&times;</span>
-                    <h2>Elige una fotografía</h2>
-                    <div class="eligeFotos">
-                        <div class="muestraFotos" id="listadoFotografias">
+                    <div class="contenido-modal">
+                        <span class="close">&times;</span>
+                        <h2>Elige una fotografía</h2>
+                        <div class="eligeFotos">
+                            <div class="muestraFotos" id="listadoFotografias">
 
-                        </div>
+                            </div>
 
-                        <div class="paginacion">
-                        <button onclick="event.preventDefault()" id="botonAtras" class="paginacion__enlace paginacion__enlace--texto">Anterior &laquo</button>
-                        <span id="informacionPaginas"></span>
-                        <button onclick="event.preventDefault()" id="botonSiguiente" class="paginacion__enlace paginacion__enlace--texto">Siguiente &raquo</button>
+                            <div class="paginacion">
+                            <button onclick="event.preventDefault()" id="botonAtras" class="paginacion__enlace paginacion__enlace--texto">Anterior &laquo</button>
+                            <span id="informacionPaginas"></span>
+                            <button onclick="event.preventDefault()" id="botonSiguiente" class="paginacion__enlace paginacion__enlace--texto">Siguiente &raquo</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-  </div>
             </div>
 
             <div class="campo">

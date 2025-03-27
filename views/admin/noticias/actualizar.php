@@ -15,6 +15,5 @@
             
 </div>
 <?php
-$script = '';
+$script = '<script src="/build/js/modalFotografia.js"></script><script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
 ?>
-

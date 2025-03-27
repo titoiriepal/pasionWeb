@@ -6,7 +6,7 @@
     
 ?>
 <div class="contenedor">
-    <form action="" class="formulario">
+    <form action="/admin/galerias/busquedaCrear?page=1" class="formulario">
         <div class="campo">
             <label for="busqueda">Buscar:</label>
             <input 
@@ -18,7 +18,8 @@
             <br>
             
         </div>
-        <p class="center"><span id=btnBusqueda class="boton">Buscar</span></p>
+        <p class = "center"><input type="submit" id=btnBusqueda class="center boton" value="Buscar"></p>
+        <!-- <p class="center"><span id=btnBusqueda class="boton">Buscar</span></p> -->
     </form>
     <table class="tabla">
         <thead>

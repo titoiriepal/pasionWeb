@@ -74,6 +74,7 @@ $router->get('/noticia', [NavController::class, 'noticia']);
     //ADMINISTRACION DE GALERIAS
     $router->get('/admin/galerias', [GaleriaController::class, 'galerias']);
     $router->get('/admin/galerias/crear', [GaleriaController::class, 'crearGaleria']);
+    $router->get('/admin/galerias/busquedaCrear', [GaleriaController::class, 'buscaCrearGaleria']);
     $router->post('/admin/galerias/nueva', [GaleriaController::class, 'nuevaGaleria']);
     $router->get('/admin/galerias/eliminar', [GaleriaController::class, 'eliminarGaleria']);
     $router->get('/admin/galerias/galeria', [GaleriaController::class, 'editarGaleria']);

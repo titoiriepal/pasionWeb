@@ -129,9 +129,14 @@ class NavController{
         $galeriaNumero = $_GET['galery'];
         $galeriaNumero = filter_var($galeriaNumero, FILTER_VALIDATE_INT);
 
+        
+
         if(!$galeriaNumero){
         header('Location:/');
+    
         }
+
+        
 
         $galeria = Galerias::find($galeriaNumero);
         if(!$galeria){
@@ -152,7 +157,7 @@ class NavController{
         }
 
         //Nos devuelve el total de usuarios que tenemos según la busqueda
-        $total_registros = Fotografias::totalQuery(['idUsuario' => $galeriaNumero]);
+        $total_registros = Fotografias::totalQuery(['idUsuario' => $galeria->idUsuario]);
         if($total_registros === "0"){
             header('Location:/');
             exit;
@@ -167,14 +172,18 @@ class NavController{
 
 
 
-        $fotografias = Fotografias::paginar($registros_por_pagina, $paginacion->offset(),Fotografias::selectWhereArray(['idUsuario' => $galeriaNumero]), $orden);
+        $fotografias = Fotografias::paginar($registros_por_pagina, $paginacion->offset(),Fotografias::selectWhereArray(['idUsuario' => $galeria->idUsuario]), $orden);
         //$fotografias = Fotografias::findXFromToWhitId('id', $inicioConsultaFotografias, 12, $_GET['galery']);
         foreach ($fotografias as $fotografia){
             $fotografia->url = nameCarpet($galeria->usuario->nombre, $galeria->usuario->apellidos) . '/' . trim($fotografia->ruta);
+            debuguear($fotografia->textAlt);
             if($fotografia->textAlt === ''){
+                
                 $fotografia->textAlt = $galeria->textAlt;
             }
         }
+
+        
         
         $router->render('nav/galeriaFotografica', [
             'title' => 'Galerías fotográficas',
