@@ -101,11 +101,11 @@
             <p class="personaje">Caifas</p>
         </div>
         <div class="actor pilatos">
-            <p class="nombre">Félix Martínez</p>
+            <p class="nombre">Andrés Cristobal</p>
             <p class="personaje">Poncio Pilatos</p>
         </div>
         <div class="actor juan">
-            <p class="nombre">Andrés Cristobal</p>
+            <p class="nombre">Félix Martínez</p>
             <p class="personaje">Juan</p>
         </div>
     </div>
