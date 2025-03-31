@@ -1,6 +1,6 @@
 //Constantes y variables comunes en toda la página
 
-const ruta = 'http://localhost:3000';
+const ruta = '${location.origin}';
 
 document.addEventListener('DOMContentLoaded', function(){
     iniciarApp();

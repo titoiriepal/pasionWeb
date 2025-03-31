@@ -1,1 +1,0 @@
-!function(){var t=$("<div class='lightbox'></div>"),a=$("<img>"),i=$("<p class='caption'></p>");t.append(a).append(i),$("body").append(t),$(".lightbox-gallery img").click((function(n){n.preventDefault();var c=$(this).attr("data-image-hd"),e=$(this).attr("alt");a.attr("src",c),i.text(e),t.fadeIn("fast"),t.click((function(){t.fadeOut("fast")}))}))}();
