@@ -39,7 +39,7 @@ class Email{
 
         $contenido = "<html>";
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has solicitado reestablecer tu contraseña en Pasion Viviente de Iriépal, solo debes hacerlo en el siguiente enlace</p>";
-        $contenido .= "<p>Presiona aquí: <a href='" . $_ENV['EMAIL_HOST'] . "/auth/recuperar?token=" . $this->token . "'>Reestablecer contraseña</a></p>";
+        $contenido .= "<p>Presiona aquí: <a href='" . $_ENV['HOST'] . "/auth/recuperar?token=" . $this->token . "'>Reestablecer contraseña</a></p>";
         $contenido .= "<p>Si tú no solicitaste esta cambio, puedes ignorar el mensaje</p>";
         $contenido .= "</html>";
 
@@ -74,7 +74,7 @@ class Email{
 
         $contenido = "<html>";
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has creado tu cuenta en Pasion Viviente de Iriépal, solo debes confirmarla en el siguiente enlace</p>";
-        $contenido .= "<p>Presiona aquí: <a href='" . $_ENV['EMAIL_HOST'] . "/auth/confirmar-cuenta?token=" . $this->token . "'>Confirmar tu cuenta</a></p>";
+        $contenido .= "<p>Presiona aquí: <a href='" . $_ENV['HOST'] . "/auth/confirmar-cuenta?token=" . $this->token . "'>Confirmar tu cuenta</a></p>";
         $contenido .= "<p>Si tú no solicitaste esta cuenta, puedes ignorar el mensaje</p>";
         $contenido .= "</html>";
 
