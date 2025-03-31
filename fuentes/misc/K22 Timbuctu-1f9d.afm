@@ -1,0 +1,118 @@
+StartFontMetrics 2.0
+Comment Copyright Based on Timbuctu on page 95 of Special Effects and Topical Alphabets: 100 Complete Fonts by Dan X. Solo by Dan X. Solo published by Dover Publications, New York, 1978.
+
+Toto
+Kyusi, Pilipinas
+toto@ispx.com.ph + to22to@gmail.com
+December 16, 2011
+Comment Panose 2 0 0 0 0 0 0 0 0 0
+FullName K22 Timbuctu
+FontName K22Timbuctu
+FamilyName K22 Timbuctu
+Weight Regular
+Notice Toto 2011 [toto@ispx.com.ph + to22to@gmail.com] For personal use only.
+Version 1.000
+IsFixedPitch false
+ItalicAngle 0.00
+FontBBox -302 -534 1222 955
+Ascender 750
+Descender -250
+XHeight 500
+CapHeight 700
+UnderlinePosition -100
+UnderlineThickness 50
+EncodingScheme AdobeStandardEncoding
+StartCharMetrics 91
+C 32 ; WX 350 ; N space ; B 0 0 0 0 ;
+C 33 ; WX 279 ; N exclam ; B 7 -6 261 816 ;
+C 34 ; WX 293 ; N quotedbl ; B 36 493 261 691 ;
+C 35 ; WX 328 ; N numbersign ; B -86 -339 323 688 ;
+C 36 ; WX 339 ; N dollar ; B 17 -33 321 558 ;
+C 38 ; WX 718 ; N ampersand ; B 28 -53 703 756 ;
+C 39 ; WX 177 ; N quotesingle ; B 30 493 154 691 ;
+C 40 ; WX 319 ; N parenleft ; B 15 -172 307 752 ;
+C 41 ; WX 319 ; N parenright ; B 12 -172 304 752 ;
+C 44 ; WX 196 ; N comma ; B 11 -183 172 99 ;
+C 45 ; WX 339 ; N hyphen ; B 11 220 310 358 ;
+C 46 ; WX 142 ; N period ; B 20 -82 128 125 ;
+C 48 ; WX 732 ; N zero ; B 21 0 713 615 ;
+C 49 ; WX 251 ; N one ; B 1 -1 228 651 ;
+C 50 ; WX 430 ; N two ; B 9 -162 572 636 ;
+C 51 ; WX 418 ; N three ; B -86 -104 405 663 ;
+C 52 ; WX 398 ; N four ; B 7 -135 487 821 ;
+C 53 ; WX 533 ; N five ; B 17 -455 525 654 ;
+C 54 ; WX 635 ; N six ; B 16 0 612 810 ;
+C 55 ; WX 518 ; N seven ; B 14 -179 499 726 ;
+C 56 ; WX 498 ; N eight ; B 26 27 476 637 ;
+C 57 ; WX 616 ; N nine ; B 14 -389 607 606 ;
+C 58 ; WX 160 ; N colon ; B 17 -82 145 432 ;
+C 59 ; WX 187 ; N semicolon ; B 11 -183 172 428 ;
+C 63 ; WX 549 ; N question ; B 24 -10 534 826 ;
+C 65 ; WX 503 ; N A ; B 21 -138 936 463 ;
+C 66 ; WX 496 ; N B ; B 20 0 476 870 ;
+C 67 ; WX 472 ; N C ; B 19 -136 871 494 ;
+C 68 ; WX 513 ; N D ; B 14 0 490 881 ;
+C 69 ; WX 495 ; N E ; B 23 -294 723 463 ;
+C 70 ; WX 391 ; N F ; B 13 -224 508 955 ;
+C 71 ; WX 606 ; N G ; B -302 -333 625 471 ;
+C 72 ; WX 385 ; N H ; B 11 -368 463 935 ;
+C 73 ; WX 203 ; N I ; B 15 -191 304 600 ;
+C 74 ; WX 241 ; N J ; B -77 -499 300 706 ;
+C 75 ; WX 591 ; N K ; B 21 -230 1221 873 ;
+C 76 ; WX 255 ; N L ; B 11 -53 259 827 ;
+C 77 ; WX 745 ; N M ; B 15 -77 727 658 ;
+C 78 ; WX 625 ; N N ; B 10 -83 631 406 ;
+C 79 ; WX 717 ; N O ; B 26 -12 666 577 ;
+C 80 ; WX 641 ; N P ; B 16 -399 603 470 ;
+C 81 ; WX 687 ; N Q ; B 5 -319 650 450 ;
+C 82 ; WX 482 ; N R ; B 12 -411 1101 438 ;
+C 83 ; WX 562 ; N S ; B -248 -318 554 488 ;
+C 84 ; WX 269 ; N T ; B 23 -286 982 710 ;
+C 85 ; WX 522 ; N U ; B 8 -112 493 552 ;
+C 86 ; WX 650 ; N V ; B 10 -37 637 468 ;
+C 87 ; WX 769 ; N W ; B 12 -153 743 467 ;
+C 88 ; WX 584 ; N X ; B 20 -28 559 524 ;
+C 89 ; WX 707 ; N Y ; B -281 -347 691 498 ;
+C 90 ; WX 328 ; N Z ; B 19 -317 309 480 ;
+C 91 ; WX 221 ; N bracketleft ; B 6 -109 221 866 ;
+C 93 ; WX 465 ; N bracketright ; B 27 -2 442 466 ;
+C 97 ; WX 484 ; N a ; B 21 -11 484 467 ;
+C 98 ; WX 496 ; N b ; B 20 0 476 870 ;
+C 99 ; WX 443 ; N c ; B 19 0 443 498 ;
+C 100 ; WX 513 ; N d ; B 14 0 490 881 ;
+C 101 ; WX 518 ; N e ; B 23 0 494 480 ;
+C 102 ; WX 316 ; N f ; B 6 -255 326 900 ;
+C 103 ; WX 477 ; N g ; B 18 -298 469 463 ;
+C 104 ; WX 385 ; N h ; B 11 -368 463 935 ;
+C 105 ; WX 205 ; N i ; B 15 -117 209 643 ;
+C 106 ; WX 241 ; N j ; B -77 -499 300 706 ;
+C 107 ; WX 343 ; N k ; B 14 -312 545 816 ;
+C 108 ; WX 164 ; N l ; B 8 -45 196 759 ;
+C 109 ; WX 842 ; N m ; B 15 -18 824 494 ;
+C 110 ; WX 582 ; N n ; B 1 -383 577 442 ;
+C 111 ; WX 601 ; N o ; B 15 0 597 463 ;
+C 112 ; WX 641 ; N p ; B 16 -399 603 470 ;
+C 113 ; WX 687 ; N q ; B 5 -319 650 450 ;
+C 114 ; WX 414 ; N r ; B 14 -1 390 457 ;
+C 115 ; WX 523 ; N s ; B -45 -223 485 465 ;
+C 116 ; WX 356 ; N t ; B 23 0 348 763 ;
+C 117 ; WX 500 ; N u ; B -24 -203 697 462 ;
+C 118 ; WX 650 ; N v ; B 10 -37 637 468 ;
+C 119 ; WX 794 ; N w ; B 26 0 757 467 ;
+C 120 ; WX 584 ; N x ; B 20 -28 559 524 ;
+C 121 ; WX 556 ; N y ; B 19 -373 518 457 ;
+C 122 ; WX 328 ; N z ; B 19 -317 309 480 ;
+C 123 ; WX 517 ; N braceleft ; B 23 -220 1222 476 ;
+C 125 ; WX 557 ; N braceright ; B 18 -534 593 540 ;
+C 133 ; WX 426 ; N ellipsis ; B 20 -82 412 125 ;
+C 145 ; WX 276 ; N quoteleft ; B 0 403 274 694 ;
+C 146 ; WX 277 ; N quoteright ; B 11 514 275 765 ;
+C 147 ; WX 320 ; N quotedblleft ; B 0 403 314 704 ;
+C 148 ; WX 314 ; N quotedblright ; B 23 514 311 765 ;
+C 161 ; WX 279 ; N exclamdown ; B 7 -250 261 572 ;
+C 162 ; WX 350 ; N cent ; B 14 63 335 551 ;
+C 191 ; WX 549 ; N questiondown ; B 23 -250 533 586 ;
+C -1 ; WX 0 ; N .null ; B 0 0 0 0 ;
+C -1 ; WX 500 ; N CR ; B 0 0 0 0 ;
+EndCharMetrics
+EndFontMetrics

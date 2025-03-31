@@ -1,0 +1,1 @@
+var btnUsuarios=document.getElementById("btnUsuarios");console.log(btnUsuarios);
