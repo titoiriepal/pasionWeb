@@ -1,6 +1,6 @@
 //Constantes y variables comunes en toda la página
 
-const ruta = '${location.origin}';
+const ruta = window.location.origin;
 
 document.addEventListener('DOMContentLoaded', function(){
     iniciarApp();

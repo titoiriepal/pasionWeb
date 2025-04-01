@@ -10,9 +10,6 @@
         <?php foreach ($noticia->formatResumen as $parrafo) {?>
         <p class="textoBlog resumen"><?php echo $parrafo ?></p>
         <?php  }?>
-    <?php foreach ($noticia->formatText as $parrafo) {?>
-    <p class="textoBlog"><?php echo $parrafo ?></p>
-    <?php  }?>
 </div>
 
 <div class="contenedor retorno">
