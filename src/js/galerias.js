@@ -1,4 +1,5 @@
 
+
 const usuariosPorPagina = 25;
 const BreakException = 'Usuarios máximos alcanzados';
 var paginaActual = 1;
@@ -25,6 +26,7 @@ async function iniciarUsuarios(){
 
 async function creaGaleria(e){
     const id = e.target.dataset.idusuario;
+    console.log(ruta)
     
     Swal.fire({
         title: '¿Quieres crear una nueva galería para este usuario?',
@@ -63,7 +65,9 @@ async function creaNuevaGaleria(id) {
     const datos = new FormData();
         datos.append('id', id);
         try{
-            const url = ruta + `/admin/galerias/nueva`; 
+            const url ='/admin/galerias/nueva'; 
+            
+            
             const resultado = await fetch(url, {
                 method: 'POST',
                 body:datos

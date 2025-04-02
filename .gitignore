@@ -1,6 +1,8 @@
 node_modules
 vendor/
+.DS_Store
 gulpfile.js
 package.json
 package-lock.json
 .env
+.ssh/

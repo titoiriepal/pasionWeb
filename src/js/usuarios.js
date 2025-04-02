@@ -122,7 +122,7 @@ async function buscarUsuarios(cadena){
     const datos = new FormData();
     datos.append('cadena', cadena);
     try{
-        const url = 'http://localhost:3000/admin/api/buscaUsuarios';
+        const url = '/admin/api/buscaUsuarios';
         const resultado = await fetch(url, {
             method: 'POST',
             body:datos
@@ -296,7 +296,7 @@ async function borrarUsuario(id){
     
     try{
         
-        const url = `http://localhost:3000/admin/usuarios/eliminar?id=${id}`;
+        const url = `/admin/usuarios/eliminar?id=${id}`;
         const resultado = await fetch(url);
         const respuesta = await resultado.json();
         

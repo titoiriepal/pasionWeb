@@ -14,6 +14,7 @@ class GaleriaController{
 
     public static function galerias(Router $router){
 
+        
         isAdminOrFoto();//Solo pueden acceder administradores o fotografos
         $alertas=[];
 

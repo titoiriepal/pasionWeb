@@ -58,7 +58,7 @@ async function editarTexto(id,texto) {
         datos.append('id', id);
         datos.append('texto', texto)
         try{
-            const url = ruta + `/admin/galerias/textoAlt`; 
+            const url = '/admin/galerias/textoAlt'; 
             const resultado = await fetch(url, {
                 method: 'POST',
                 body:datos
