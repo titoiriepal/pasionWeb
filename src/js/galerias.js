@@ -72,8 +72,9 @@ async function creaNuevaGaleria(id) {
                 method: 'POST',
                 body:datos
                 });
-                const respuesta = await resultado.json();
+                const respuesta = await resultado.text();
                 if(respuesta){
+                    console.log(respuesta);
                     return(respuesta);
                 }
         }catch (error){
