@@ -4,7 +4,7 @@
 
 
 <div class="contenedor">
-    <form action="http://localhost:3000/admin/buscausuario?page=1" class="formulario">
+    <form action="/admin/buscausuario?page=1" class="formulario">
         <div class="campo">
             <label for="busqueda">Buscar:</label>
             <input 

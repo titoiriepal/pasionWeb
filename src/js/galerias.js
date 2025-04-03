@@ -26,7 +26,6 @@ async function iniciarUsuarios(){
 
 async function creaGaleria(e){
     const id = e.target.dataset.idusuario;
-    console.log(ruta)
     
     Swal.fire({
         title: '¿Quieres crear una nueva galería para este usuario?',
