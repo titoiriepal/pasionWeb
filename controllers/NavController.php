@@ -82,7 +82,7 @@ class NavController{
         }
 
         $total_registros = Noticia::total();
-        $registros_por_pagina = 5;
+        $registros_por_pagina = 10;
         $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros);
 
         if($paginacion->total_paginas() < $pagina_actual){

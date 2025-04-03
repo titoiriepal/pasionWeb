@@ -42,7 +42,7 @@ class GaleriaController{
                 exit;
             }
  
-            $registros_por_pagina = 5;
+            $registros_por_pagina = 10;
             $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros);
 
             if($paginacion->total_paginas() < $pagina_actual){
@@ -236,7 +236,7 @@ class GaleriaController{
 
         //Contamos todos los registros que existen de Usuarios y creamos la paginación
         $total_registros = Usuario::totalQuery(['fotografo' => 0]);
-        $registros_por_pagina = 10;
+        $registros_por_pagina = 20;
         $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros, $orden);
 
         //Si la página actual es mayor al número de páginas totales, redirigimos a la primera página
@@ -283,7 +283,7 @@ class GaleriaController{
 
         $total_registros = Usuario::totalQuery(['nombre' => $_GET["busqueda"],'apellidos' => $_GET["busqueda"],'email' => $_GET["busqueda"],'CONCAT(nombre, " ", apellidos)' => $_GET["busqueda"]]);
 
-        $registros_por_pagina = 10;
+        $registros_por_pagina = 20;
         $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros, $orden);
 
         //Si la página actual es mayor al número de páginas totales, redirigimos a la primera página

@@ -32,7 +32,7 @@ if(!$pagina_actual  || $pagina_actual < 1){
 
 //Contamos todos los registros que existen de Usuarios y creamos la paginación
 $total_registros = Usuario::total();
-$registros_por_pagina = 5;
+$registros_por_pagina = 20;
 $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros, $orden);
 
 //Si la página actual es mayor al número de páginas totales, redirigimos a la primera página
@@ -71,7 +71,7 @@ if(!$pagina_actual  || $pagina_actual < 1){
 //Nos devuelve el total de usuarios que tenemos según la busqueda
 $total_registros = Usuario::totalQuery(['nombre' => $_GET["busqueda"],'apellidos' => $_GET["busqueda"],'email' => $_GET["busqueda"],'CONCAT(nombre, " ", apellidos)' => $_GET["busqueda"]]);
 
-$registros_por_pagina = 10; //Número de elementos que muestra cada página
+$registros_por_pagina = 20; //Número de elementos que muestra cada página
 
 //Creamos la paginación
 $paginacion = new Paginacion($pagina_actual,$registros_por_pagina,$total_registros, $orden);
