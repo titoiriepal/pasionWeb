@@ -9,8 +9,14 @@
     </picture>
         <?php foreach ($noticia->formatResumen as $parrafo) {?>
         <p class="textoBlog resumen"><?php echo $parrafo ?></p>
+        
         <?php  }?>
+        
 </div>
+<div class="contenedor">
+    <p class="textoBlog"><?php echo $noticia->cuerpo; ?></p>
+</div>
+
 
 <div class="contenedor retorno">
     <a href="/"><button class="boton">Inicio</button></a>
