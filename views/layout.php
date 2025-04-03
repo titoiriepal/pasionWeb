@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html" charset="utf8mb4_spanish2_ci">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title ?? 'Pasión Viviente de Iriépal'; ?></title>
     <script src="https://kit.fontawesome.com/7d96e566c4.js" crossorigin="anonymous"></script>
