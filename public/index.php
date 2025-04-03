@@ -111,4 +111,6 @@ $router->get('/noticia', [NavController::class, 'noticia']);
 
 $router->get('/404', [NavController::class, 'error']);
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
+
+header('Content-type: text/html; charset=utf-8');
 $router->comprobarRutas();
