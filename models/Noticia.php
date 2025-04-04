@@ -7,7 +7,7 @@ class Noticia extends ActiveRecord{
 
 
     protected static $tabla = 'noticias';
-    protected static $columnasDB = ['id', 'titulo', 'resumen', 'cuerpo', 'fecha', 'idUsuario', 'idFoto'];
+    protected static $columnasDB = ['id', 'titulo', 'resumen', 'cuerpo', 'fecha', 'idUsuario', 'idFoto','link'];
 
     public $id;
     public $titulo;
@@ -26,6 +26,8 @@ class Noticia extends ActiveRecord{
         $this->fecha = $args['fecha'] ?? '';
         $this->idUsuario = $args['idUsuario'] ?? '';
         $this->idFoto = $args['idFoto'] ?? '';
+        $this->link = $args['link'] ?? '';
+
     }
 
     public function validarNuevaNoticia(){
@@ -49,6 +51,10 @@ class Noticia extends ActiveRecord{
         }
         if(!$this->idFoto){
             self::$alertas['error'][] = 'No has elegido una fotografía para la noticia';
+        }
+
+        if(strlen($this->link)>= 500){
+            self::$alertas['error'][] = 'El enlace proporcionado es demasiado largo'; 
         }
 
 

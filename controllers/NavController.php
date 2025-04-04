@@ -301,10 +301,9 @@ class NavController{
         $noticia->formatResumen =explode("\n", $noticia->resumen);
         $noticia->formatText = explode("\n", $noticia->cuerpo);
         // $blog->formatText = array_map('trim', $blog->formatText);
-        //debuguear($blog->formatText);
 
         $router->render('nav/noticia', [
-            'title' => 'Blog Pasión',
+            'title' => 'Noticia Pasión',
             'noticia' => $noticia,
         ]);
     }

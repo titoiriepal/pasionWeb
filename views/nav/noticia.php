@@ -15,6 +15,12 @@
 </div>
 <div class="contenedor">
     <p class="textoBlog"><?php echo $noticia->cuerpo; ?></p>
+    <br>
+    <?php if($noticia->link != ''){ ?>
+        <div class="centrar">
+            <a class="boton" href="<?php echo $noticia->link ?>" target="_blank">Acceder al enlace</a>
+        </div>       
+    <?php } ?>
 </div>
 
 

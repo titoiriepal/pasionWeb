@@ -72,6 +72,18 @@
                 maxlength="10000"><?php echo s($noticia->cuerpo); ?></textarea>
         </div>
 
+        <div class="campo">
+                <label for="link">Enlace (Opcional):</label>
+                <input 
+                    type="text"
+                    id="link"
+                    name="link"
+                    placeholder="Enlace opcional para la noticia (Máximo 500 caracteres)"
+                    maxlength="500"
+                    value="<?php echo s($noticia->link); ?>"
+                />
+            </div>
+
             <input 
                 type="hidden"
                 id="idFoto"
