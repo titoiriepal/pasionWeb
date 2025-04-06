@@ -55,6 +55,10 @@
         ?>
     </div>
 
+    <div class="centrar">
+        <a href="/galerias" class="boton">Ver todas</a>
+    </div>
+
 </section>
 
 <section class="section-blogs" id="blogs">

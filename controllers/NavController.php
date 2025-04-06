@@ -15,7 +15,7 @@ class NavController{
     
     public static function index (Router $router){
         $noticias = Noticia::get(5);
-        $galerias = Galerias::all();
+        $galerias = Galerias::get(4);
         $fotografias = Fotografias::all();
         $blogs = Blog::get(3);
 
@@ -118,8 +118,30 @@ class NavController{
 
     public static function galerias (Router $router){
 
+        $galerias = Galerias::all();
+
+        $arrayMuestras = [];
+        $arrayCarpetas = [];
+        $i = 0;
+        foreach ($galerias as $galeria){
+            $galeria->usuario = Usuario::find($galeria->idUsuario);
+            $muestras = Fotografias::arrayMuestras('idUsuario', $galeria->idUsuario);
+            $nombreCarpeta = nameCarpet($galeria->usuario->nombre, $galeria->usuario->apellidos);
+            $carpetaUsuario = CARPETA_IMAGENES_INDEX . '/' . $nombreCarpeta . '/' ;
+            $arrayMuestras[] = $muestras;
+            $arrayCarpetas[] = $carpetaUsuario;
+            $guia[$galeria->idUsuario] = $carpetaUsuario;
+
+            $i += 1;
+          
+        }
+
         $router->render('nav/galerias', [
-            'title' => 'Galerías fotográficas'
+            'title' => 'Galerías fotográficas',
+            'galerias' => $galerias,
+            'arrayMuestras' => $arrayMuestras,
+            'arrayCarpetas' => $arrayCarpetas,
+            'guia'=> $guia
         ]);
 
     }
