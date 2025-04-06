@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Página web de la pasión Viviente de Iriepal"/>
+    <meta name="keywords" content="pasion viviente, pasión viviente de Iriépal, pasiones vivientes, Iriépal, Iriépal pasión, pasión viviente Guadalajara, pasión viviente Hiendelaencina, Semana santa, pasion viviente teatro"/>
     <title><?php echo $title ?? 'Pasión Viviente de Iriépal'; ?></title>
     <script src="https://kit.fontawesome.com/7d96e566c4.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
