@@ -63,3 +63,10 @@ if (!(empty($_SESSION))):
 
 </header>
 
+<div class="contenedor spot">
+    <h3 class="spotTitulo">Accede desde aquí al programa del evento</h3>
+    <div class="centrar">
+        <a href="/documents/Info_VII_Pasión_Viviente_de_Iriépal_2025.pdf" class="boton boton-spot">Acceder al Programa</a>
+    </div>
+</div>
+
