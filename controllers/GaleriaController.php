@@ -360,13 +360,19 @@ class GaleriaController{
             $id = s($_POST['id']);
             $texto = s($_POST['texto']);
             $foto = Fotografias::find($id);
-            if($foto){
-                $foto->textAlt = $texto;
-                $foto->guardar();
-            }
+            
+              if($foto){
+                if($foto->idGaleria === NULL){
+                    $galeria = Galerias::where('idUsuario', $foto->idUsuario);
+                    $foto->idGaleria = $galeria->id;
+                }
+                  $foto->textAlt = $texto;
+                  $foto->guardar();
+              }
             
         }
         echo json_encode($foto);
+        
 
     }
 

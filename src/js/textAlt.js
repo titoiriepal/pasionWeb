@@ -33,6 +33,7 @@ function introducirTextoAlternativo(e){
             const texto=document.querySelector('#inputText').value;
             const resultado = await editarTexto(idFoto,texto);
             if(resultado){
+                console.log(resultado);
                 Swal.fire(
                     'Éxito',
                     'Has cambiado el texto alternativo de la fotografía ' + idFoto,
