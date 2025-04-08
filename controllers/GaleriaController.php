@@ -335,6 +335,25 @@ class GaleriaController{
 
     }
 
+    public static function ocultarGaleria(){ //Oculta una galeria
+        isAdmin();
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){     
+            $id = s($_POST['id']);
+            $galeria = Galerias::find($id);
+            if($galeria){
+                if($galeria->oculto === '0'){
+                    $galeria->oculto = 1;
+                }else{
+                    $galeria->oculto = 0;
+                }
+                $galeria->guardar();
+            }
+            
+        }
+        echo json_encode($galeria);
+
+    }
+
     public static function textoAlt(){ //Crea una nueva galería y devuelve el usuario para el que se creo la galería
         isAdminOrFoto();
         if($_SERVER['REQUEST_METHOD'] === 'POST'){     

@@ -23,8 +23,9 @@
                     <input 
                         type="checkbox"
                         name="oculto"
-                        id="oculto"
-                        value="1"
+                        class="oculto"
+                        id="oculto<?php echo $galeria->id; ?>"
+                        value="<?php echo $galeria->id; ?>"
                         <?php if($galeria->oculto === '1'): ?>
                             checked
                         <?php endif; ?>                        
@@ -49,5 +50,5 @@
 ?>
 
 <?php
-$script = '';
+$script = '<script src="/build/js/ocultarGaleria.js"></script><script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
 ?>
