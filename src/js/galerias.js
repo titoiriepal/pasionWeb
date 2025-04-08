@@ -71,7 +71,7 @@ async function creaNuevaGaleria(id) {
                 method: 'POST',
                 body:datos
                 });
-                const respuesta = await resultado.text();
+                const respuesta = await resultado.json();
                 if(respuesta){
                     console.log(respuesta);
                     return(respuesta);

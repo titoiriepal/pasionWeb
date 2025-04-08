@@ -324,6 +324,7 @@ class GaleriaController{
             if($usuario){
                 $galeria->idUsuario = $id;
                 $galeria->textAlt = 'Fotografia de ' . $usuario->nombre . ' ' . $usuario->apellidos;
+                $galeria->oculto = 0;
                 $resultado= $galeria->guardar();
                 $usuario->fotografo = 1;
                 $usuario->guardar();

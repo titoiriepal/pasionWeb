@@ -19,7 +19,18 @@
                 <div class="listaAcciones">
                     <a href="/admin/galerias/galeria?id=<?php echo $galeria->id; ?>"" class="boton-amarillo">Editar</a>
                     <a href="/admin/galerias/eliminar?id=<?php echo $galeria->id; ?>" class="boton-rojo">Eliminar</a>
+                    <label for="oculto">Oculta:</label>
+                    <input 
+                        type="checkbox"
+                        name="oculto"
+                        id="oculto"
+                        value="1"
+                        <?php if($galeria->oculto === '1'): ?>
+                            checked
+                        <?php endif; ?>                        
+                    />                
                 </div>
+
 
             </li>
         <?php endforeach; ?>

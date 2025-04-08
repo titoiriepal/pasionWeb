@@ -18,7 +18,7 @@ class Galerias extends ActiveRecord{
         $this->id = $args['id'] ?? null;
         $this->idUsuario = $args['idUsuario'] ?? '';
         $textAlt->$args['textAlt'] ?? '';
-        $oculto->$args['oculto'] ?? '';
+        $oculto->$args['oculto'] ?? 0;
         
     }
 
