@@ -324,13 +324,33 @@ class GaleriaController{
             if($usuario){
                 $galeria->idUsuario = $id;
                 $galeria->textAlt = 'Fotografia de ' . $usuario->nombre . ' ' . $usuario->apellidos;
+                $galeria->oculto = 0;
                 $resultado= $galeria->guardar();
                 $usuario->fotografo = 1;
                 $usuario->guardar();
             }
             
         }
-        echo json_encode($usuario);
+        echo json_encode($resultado);
+
+    }
+
+    public static function ocultarGaleria(){ //Oculta una galeria
+        isAdmin();
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){     
+            $id = s($_POST['id']);
+            $galeria = Galerias::find($id);
+            if($galeria){
+                if($galeria->oculto === '0'){
+                    $galeria->oculto = 1;
+                }else{
+                    $galeria->oculto = 0;
+                }
+                $galeria->guardar();
+            }
+            
+        }
+        echo json_encode($galeria);
 
     }
 
@@ -340,13 +360,19 @@ class GaleriaController{
             $id = s($_POST['id']);
             $texto = s($_POST['texto']);
             $foto = Fotografias::find($id);
-            if($foto){
-                $foto->textAlt = $texto;
-                $foto->guardar();
-            }
+            
+              if($foto){
+                if($foto->idGaleria === NULL){
+                    $galeria = Galerias::where('idUsuario', $foto->idUsuario);
+                    $foto->idGaleria = $galeria->id;
+                }
+                  $foto->textAlt = $texto;
+                  $foto->guardar();
+              }
             
         }
         echo json_encode($foto);
+        
 
     }
 

@@ -76,6 +76,7 @@ $router->get('/noticia', [NavController::class, 'noticia']);
     $router->get('/admin/galerias/crear', [GaleriaController::class, 'crearGaleria']);
     $router->get('/admin/galerias/busquedaCrear', [GaleriaController::class, 'buscaCrearGaleria']);
     $router->post('/admin/galerias/nueva', [GaleriaController::class, 'nuevaGaleria']);
+    $router->post('/admin/galerias/ocultar', [GaleriaController::class, 'ocultarGaleria']);
     $router->get('/admin/galerias/eliminar', [GaleriaController::class, 'eliminarGaleria']);
     $router->get('/admin/galerias/galeria', [GaleriaController::class, 'editarGaleria']);
     $router->post('/admin/galerias/galeria', [GaleriaController::class, 'editarGaleria']);

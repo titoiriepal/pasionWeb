@@ -171,9 +171,12 @@ class ActiveRecord {
     }
 
     // Obtener Registros con cierta cantidad
-    public static function get($limite) {
-        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT $limite" ;
-        
+    public static function get($limite,$condition=[]) {
+        $query = "SELECT * FROM " . static::$tabla; 
+        if(!empty($condition)){
+            $query .= " WHERE $condition[0] = $condition[1]";
+            }
+        $query .= " ORDER BY id DESC LIMIT $limite";
         $resultado = self::consultarSQL($query);
         return  $resultado ;
     }
@@ -205,6 +208,14 @@ class ActiveRecord {
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }
+
+    public static function whereBool($columna, $valor) {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE $columna = $valor";
+        $resultado = self::consultarSQL($query);
+        return ( $resultado ) ;
+    }
+
+
 
     //Busqueda Where con Columna devolviendo más de una opción
     public static function arrayWhere($columna, $valor) {

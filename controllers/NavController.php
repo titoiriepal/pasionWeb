@@ -14,8 +14,8 @@ use Model\Galerias;
 class NavController{
     
     public static function index (Router $router){
+        $galerias = Galerias::get(4,['oculto', 0]);
         $noticias = Noticia::get(5);
-        $galerias = Galerias::get(4);
         $fotografias = Fotografias::all();
         $blogs = Blog::get(3);
 
@@ -118,7 +118,7 @@ class NavController{
 
     public static function galerias (Router $router){
 
-        $galerias = Galerias::all();
+        $galerias = Galerias::whereBool('oculto', 0);
 
         $arrayMuestras = [];
         $arrayCarpetas = [];
@@ -133,6 +133,7 @@ class NavController{
             $guia[$galeria->idUsuario] = $carpetaUsuario;
 
             $i += 1;
+            
           
         }
 
