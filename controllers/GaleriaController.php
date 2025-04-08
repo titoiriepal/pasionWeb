@@ -331,7 +331,7 @@ class GaleriaController{
             }
             
         }
-        echo json_encode($usuario);
+        echo json_encode($resultado);
 
     }
 
