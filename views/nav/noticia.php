@@ -14,7 +14,10 @@
         
 </div>
 <div class="contenedor">
-    <p class="textoBlog"><?php echo $noticia->cuerpo; ?></p>
+    <?php foreach ($noticia->formatText as $parrafo) {?>
+    <p class="textoBlog"><?php echo $parrafo ?></p>
+    <?php  }?>
+    <!-- <p class="textoBlog"><?php echo $noticia->cuerpo; ?></p> -->
     <br>
     <?php if($noticia->link != ''){ ?>
         <div class="centrar">
