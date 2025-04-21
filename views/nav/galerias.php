@@ -1,6 +1,10 @@
 
 <section class="seccion-galerias" id="galeria">
     <h2 class="encabezado_h2">Galerías Fotográficas</h2>
+    <div class="contenedor">
+        <a href="/videos"><button class="boton">Videos</button></a>
+    </div>
+    
 
     <h4 class="infoblog">Echa un vistazo a todas nuestras galerías fotográficas</h4>
         <?php  

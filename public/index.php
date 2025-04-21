@@ -10,6 +10,7 @@ use Controllers\LoginController;
 use Controllers\NavController;
 use Controllers\NoticiaController;
 use Controllers\UsuarioController;
+use Controllers\VideosController;
 use MVC\Router;
 
 
@@ -45,6 +46,8 @@ $router = new Router();
 // GALERIAS FOTOGRAFICAS
     $router->get('/galerias/galeria', [NavController::class, 'galeriaFotografica']);
 
+// VIDEOS
+    $router->get('/videos', [VideosController::class, 'index']);
 // BLOGS
     $router->get('/blogs/blog', [NavController::class, 'blog']);
 
