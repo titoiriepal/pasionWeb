@@ -2,158 +2,173 @@
 @use 'base/variables' as v;
 
 
-.section-blogs{
+.section-blogs {
     margin-top: 4rem;
 }
-.contenedor-blogs{
+
+.contenedor-blogs {
 
     @include m.desktop {
-        display:flex;
+        display: flex;
         min-height: 70rem;
-        
+
         border-bottom: 3px solid v.$morado;
-        
+
     }
 
-    .imagen{
-        position:relative;
+    .imagen {
+        position: relative;
         bottom: 0rem;
         height: auto;
         max-height: 83.5rem;
-        width:50%;
+        width: 50%;
         background-image: url(../img/cristox.png);
         background-repeat: no-repeat;
-        background-size:contain;
-        
+        background-size: contain;
+
 
     }
 
-    .blogs{
+    .blogs {
         padding: 1rem 2rem;
         // margin-bottom: 2rem;
 
         @include m.desktop {
-            width:50%;
+            width: 50%;
             padding: 1rem 2rem;
         }
 
-        .blog{
+        .blog {
             border: 2px solid v.$morado;
             border-radius: 8px;
             padding: 1.5rem 1rem;
             margin: 1.5rem 0;
             background-color: lighten(v.$morado, 8%);
 
-            h3{
+            h3 {
                 color: v.$blanco;
             }
 
-            h4{
+            h4 {
                 text-align: center;
-                color:darken(v.$blanco, 20%);
+                color: darken(v.$blanco, 20%);
 
             }
 
-            p{
+            p {
                 color: v.$blanco;
                 text-align: center;
                 font-size: 1.6rem;
 
-                a{
+                a {
                     font-size: 1.3rem;
                     color: v.$blanco;
 
                 }
             }
 
-            
+
         }
-        
+
     }
 
-    
+
 }
 
 
-.contentBlog{
+.contentBlog {
     text-align: center;
-}
 
-.pictureBlog{
-    max-width:30rem;
-    max-height:22.5rem;
-    @include m.mediaq(v.$telefono){
-        float: left;
-        margin-left: 3rem;
-        margin-right: 2rem; 
-        max-width: 40rem;
-        max-height:30rem;
-
-
+    @include m.mediaq(v.$telefono) {
+        text-align: left;
     }
-    
+
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
 }
 
-.textoBlog{
-    text-align:left;
-    color:v.$morado;
-    font-family:v.$encabezados;
-    text-indent:15px;
+.pictureBlog {
+    display: block;
+    margin: 0 auto 2rem auto;
+    max-width: 30rem;
+
+    @include m.mediaq(v.$telefono) {
+        float: left;
+        margin: 0 2rem 1rem 0;
+        max-width: 30rem;
+    }
+}
+
+.textoBlog {
+    text-align: left;
+    color: v.$morado;
+    font-family: v.$encabezados;
+    text-indent: 15px;
 
 
 }
 
-.resumen{
+.resumen {
     text-align: justify;
-    text-indent:4rem;
+    text-indent: 4rem;
     font-family: v.$fuente_principal;
     font-weight: bold;
-    font-size: 2rem; 
+    font-size: 2rem;
 
-    @include m.mediaq(v.$telefono){
-        text-align:left;
+    @include m.mediaq(v.$telefono) {
+        text-align: left;
     }
 
-    @include m.mediaq(v.$tablet){
+    @include m.mediaq(v.$tablet) {
         font-size: 2.5rem;
     }
 
 
-    
+
 }
 
 
 
-.listaBlog{
-    padding-inline-start:0px;
+.listaBlog {
+    padding-inline-start: 0px;
     margin: 1rem;
     text-align: center;
-    display:grid;
+    display: grid;
     justify-items: center;
 
-    @include m.mediaq(v.$tablet){
+    @include m.mediaq(v.$tablet) {
         @include m.grid(2, 1rem);
-        
+
     }
 
-    @include m.mediaq(v.$desktop){
+    @include m.mediaq(v.$desktop) {
         @include m.grid(3, 1rem);
     }
 
 
-    
-    
-    
+
+
+
 }
-.entradaBlog{
-    background-color:v.$blanco;
+
+.entradaBlog {
+    background-color: v.$blanco;
     border: 2.5px solid v.$morado;
     border-radius: .8rem;
-    display:flex;
+    display: flex;
     flex-direction: column;
     max-width: 33.3rem;
 }
 
-.imagen_blog{
-    padding: 1.4rem;
+.imagenBlog {
+    display: block;
+    width: 100%;
+    max-width: 30rem; // límite real
+    height: auto;
+    max-height: 25rem;
+    object-fit: contain;
+    margin: 0 auto; // centrado cuando no flota
 }

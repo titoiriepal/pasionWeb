@@ -5,24 +5,28 @@
 <div class="contentBlog contenedor">
     <picture class="pictureBlog">
         <source srcset="/imagenes/<?php echo $noticia->foto->url ?>" type="image/jpeg">
-        <img loading="lazy" class="imagenBlog" src="/imagenes/<?php echo $noticia->foto->url ?>;" alt="<?php echo $noticia->foto->textAlt;?>" width="auto" height="auto">
+        <img
+            loading="lazy"
+            class="imagenBlog"
+            src="/imagenes/<?php echo $noticia->foto->url ?>;"
+            alt="<?php echo $noticia->foto->textAlt; ?>" />
     </picture>
-        <?php foreach ($noticia->formatResumen as $parrafo) {?>
+    <?php foreach ($noticia->formatResumen as $parrafo) { ?>
         <p class="textoBlog resumen"><?php echo $parrafo ?></p>
-        
-        <?php  }?>
-        
+
+    <?php  } ?>
+
 </div>
 <div class="contenedor">
-    <?php foreach ($noticia->formatText as $parrafo) {?>
-    <p class="textoBlog"><?php echo $parrafo ?></p>
-    <?php  }?>
+    <?php foreach ($noticia->formatText as $parrafo) { ?>
+        <p class="textoBlog"><?php echo $parrafo ?></p>
+    <?php  } ?>
     <!-- <p class="textoBlog"><?php echo $noticia->cuerpo; ?></p> -->
     <br>
-    <?php if($noticia->link != ''){ ?>
+    <?php if ($noticia->link != '') { ?>
         <div class="centrar">
             <a class="boton" href="<?php echo $noticia->link ?>" target="_blank">Acceder al enlace</a>
-        </div>       
+        </div>
     <?php } ?>
 </div>
 
@@ -30,7 +34,7 @@
 <div class="contenedor retorno">
     <a href="/"><button class="boton">Inicio</button></a>
     <a href="javascript:history.back()"><button class="boton" id="volver">Volver</button></a>
-            
+
 </div>
 
 <?php
