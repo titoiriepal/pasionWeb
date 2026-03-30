@@ -1,7 +1,7 @@
 //===
 // VARIABLES
 //===
-const DATE_TARGET = new Date('03/28/2026 17:00');
+const DATE_TARGET = new Date('03/20/2027 17:00');
 // DOM for render
 const SPAN_DAYS = document.querySelector('#days');
 const SPAN_HOURS = document.querySelector('#hours');
@@ -24,7 +24,7 @@ function updateCountdown() {
     // Calcs
     const NOW = new Date()
     const DURATION = DATE_TARGET - NOW;
-    const REMAINING_DAYS = Math.floor(DURATION / MILLISECONDS_OF_A_DAY);   
+    const REMAINING_DAYS = Math.floor(DURATION / MILLISECONDS_OF_A_DAY);
     const REMAINING_HOURS = Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR);
     const REMAINING_MINUTES = Math.floor((DURATION % MILLISECONDS_OF_A_HOUR) / MILLISECONDS_OF_A_MINUTE);
     const REMAINING_SECONDS = Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
