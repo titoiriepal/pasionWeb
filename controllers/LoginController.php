@@ -155,7 +155,6 @@ class LoginController
                     $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
                     $email->enviarInstrucciones();
 
-
                     //Alerta de exito
                     Usuario::setAlerta('exito', 'Hemos enviado un correo con el enlace para resetear la contraseña');
                 } else {
