@@ -31,7 +31,7 @@ class NavController
             $fotografia = Fotografias::find($noticia->idFoto);
             $usuarioFoto = Usuario::find($fotografia->idUsuario);
             $fotografia->url = nameCarpet($usuarioFoto->nombre, $usuarioFoto->apellidos) . '/' . trim($fotografia->ruta);
-            if ($fotografia->textAlt === '') {
+            if ($fotografia->textAlt === '' || $fotografia->textAlt === ' ') {
                 $fotografia->textAlt = 'Fotografía de la noticia ' . $noticia->titulo . ' realizada por ' . $usuarioFoto->nombre . ' ' . $usuarioFoto->apellidos;
             }
             $noticia->foto = $fotografia;
