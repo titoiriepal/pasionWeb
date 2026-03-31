@@ -61,7 +61,8 @@ class LoginController
         $router->render('auth/login', [
             'title' => 'Iriépal es pasión || Iniciar Sesion',
             'alertas' => $alertas,
-            'auth' => $auth
+            'auth' => $auth,
+            'keywords' => 'login pasión viviente de Iriépal, login pasiones vivientes, login Iriépal, login Iriépal pasión,'
         ]);
     }
 
@@ -113,20 +114,14 @@ class LoginController
                     }
                 }
             }
-
-
-
-
-            //debuguear($_POST);
-
-
-
         }
+
         $router->render('auth/crear', [
 
             'title' => 'Iriépal es pasión || Crear cuenta',
             'usuario' => $usuario,
-            'alertas' => $alertas
+            'alertas' => $alertas,
+            'keywords' => 'crear cuenta pasión viviente de Iriépal, crear cuenta pasiones vivientes, crear cuenta Iriépal, crear cuenta Iriépal pasión'
         ]);
     }
 
