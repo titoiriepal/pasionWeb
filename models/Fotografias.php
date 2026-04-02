@@ -3,11 +3,12 @@
 namespace Model;
 
 
-class Fotografias extends ActiveRecord{
+class Fotografias extends ActiveRecord
+{
 
 
     protected static $tabla = 'fotografias';
-    protected static $columnasDB = ['id', 'ruta', 'fecha', 'muestra', 'idGaleria', 'idUsuario','textAlt'];
+    protected static $columnasDB = ['id', 'ruta', 'fecha', 'muestra', 'idGaleria', 'idUsuario', 'textAlt'];
 
     public $id;
     public $ruta;
@@ -17,7 +18,8 @@ class Fotografias extends ActiveRecord{
     public $idUsuario;
     public $textAlt;
 
-    public function __construct($args= []){
+    public function __construct($args = [])
+    {
 
         $this->id = $args['id'] ?? null;
         $this->ruta = $args['ruta'] ?? '';
@@ -26,18 +28,26 @@ class Fotografias extends ActiveRecord{
         $this->idGaleria = $args['idGaleria'] ?? '';
         $this->idUsuario = $args['idUsuario'] ?? '';
         $textAlt->$args['textAlt'] ?? '';
-        
     }
 
-    public static function arrayMuestras($columna, $valor) {
-        $query = "SELECT * FROM " . static::$tabla  ." WHERE $columna = '$valor' and muestra = 1";
+    public static function arrayMuestras($columna, $valor)
+    {
+        $query = "SELECT * FROM " . static::$tabla  . " WHERE $columna = '$valor' and muestra = 1";
         $resultado = self::consultarSQL($query);
         return  $resultado;
     }
 
-    public static function findXFromToWhitId($columna, $principio, $cantidad, $idGaleria) {
-        $query = "SELECT * FROM " . static::$tabla . " WHERE " . $columna . " > " . $principio . " AND idGaleria = " . $idGaleria ." LIMIT " . $cantidad; 
+    public static function findXFromToWhitId($columna, $principio, $cantidad, $idGaleria)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE " . $columna . " > " . $principio . " AND idGaleria = " . $idGaleria . " LIMIT " . $cantidad;
         $resultado = self::consultarSQL($query);
         return $resultado;
+    }
+
+    public function setIdGaleriaNull()
+    {
+        $id = intval($this->id);
+        $query = "UPDATE " . static::$tabla . " SET idGaleria = NULL WHERE id = {$id} LIMIT 1";
+        return self::$db->query($query);
     }
 }
