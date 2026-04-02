@@ -172,10 +172,11 @@ class GaleriaController
                 // $carpetaUsuario = CARPETA_IMAGENES . '/' . $nombreCarpeta . '/';
 
                 #Si queremos borrar la fotografía de una galería pero que siga disponible para las noticias
-                $galeria = $fotografia->idGaleria;
-                $fotografia->setIdGaleriaNull(); //Establecemos el idGaleria de la fotografía a null para que deje de aparecer en la galería pero siga disponible para las noticias
                 $fotografia->muestra = 0;
                 $fotografia->guardar();
+                $galeria = $fotografia->idGaleria;
+                $fotografia->setIdGaleriaNull(); //Establecemos el idGaleria de la fotografía a null para que deje de aparecer en la galería pero siga disponible para las noticias
+
 
 
                 #Si queremos eliminar completamente la fotografía, borramos el archivo y el registro de la base de datos
