@@ -62,10 +62,10 @@ class LoginController
             'title' => 'Iriépal es pasión || Iniciar Sesion',
             'alertas' => $alertas,
             'auth' => $auth,
+            'h1' => 'Iniciar Sesión en la Pasión Viviente de Iriépal',
             'keywords' => 'login pasión viviente de Iriépal, login pasiones vivientes, login Iriépal, login Iriépal pasión,'
         ]);
     }
-
 
 
     public static function crear(Router $router)
@@ -121,6 +121,7 @@ class LoginController
             'title' => 'Iriépal es pasión || Crear cuenta',
             'usuario' => $usuario,
             'alertas' => $alertas,
+            'h1' => 'Crear una cuenta en la Pasión Viviente de Iriépal',
             'keywords' => 'crear cuenta pasión viviente de Iriépal, crear cuenta pasiones vivientes, crear cuenta Iriépal, crear cuenta Iriépal pasión'
         ]);
     }
@@ -163,6 +164,8 @@ class LoginController
 
         $router->render('auth/olvide', [
             'title' => 'Iriépal es pasión || Olvide mi Password',
+            'h1' => 'Recuperar contraseña de la Pasión Viviente de Iriépal',
+            'keywords' => 'recuperar contraseña pasión viviente de Iriépal, recuperar contraseña pasiones vivientes, recuperar contraseña Iriépal, recuperar contraseña Iriépal pasión',
             'alertas' => $alertas
         ]);
     }
@@ -180,14 +183,17 @@ class LoginController
     public static function mensaje(Router $router)
     {
         $router->render('auth/mensaje', [
-            'title' => 'Iriépal es pasión || Usuario Creado'
+            'title' => 'Iriépal es pasión || Usuario Creado',
+            'h1' => 'Cuenta creada correctamente en la Pasión Viviente de Iriépal',
+            'keywords' => 'cuenta creada pasión viviente de Iriépal, cuenta creada pasiones vivientes, cuenta creada Iriépal, cuenta creada Iriépal pasión'
         ]);
     }
 
     public static function mensajePassword(Router $router)
     {
         $router->render('auth/mensaje-password', [
-            'title' => 'Iriépal es pasión || Contraseña cambiada'
+            'title' => 'Iriépal es pasión || Contraseña cambiada',
+            'h1' => 'Contraseña cambiada correctamente en la Pasión Viviente de Iriépal',
         ]);
     }
 
@@ -217,6 +223,7 @@ class LoginController
 
         $router->render('auth/confirmar', [
             'title' => 'Iriépal es pasión || Confirmar Usuario',
+            'h1' => 'Confirmar cuenta en la Pasión Viviente de Iriépal',
             'alertas' => $alertas
         ]);
     }
@@ -260,6 +267,7 @@ class LoginController
         $alertas = Usuario::getAlertas();
         $router->render('auth/recuperar', [
             'title' => 'Iriépal es pasión || Reestablecer contraseña',
+            'h1' => 'Reestablecer contraseña de la Pasión Viviente de Iriépal',
             'alertas' => $alertas,
             'error' => $error
         ]);

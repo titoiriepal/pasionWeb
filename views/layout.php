@@ -24,7 +24,10 @@
 
 <body id="body">
     <?php include_once __DIR__ . '/templates/header.php'; ?>
-    <?php echo $contenido; ?>
+    <main>
+        <h1 class="visually-hidden"><?php echo $h1 ?? 'Pasión Viviente de Iriépal'; ?></h1>
+        <?php echo $contenido; ?>
+    </main>
     <?php include_once __DIR__ . '/templates/footer.php'; ?>
     <?php echo $script ?? ''; ?>
 

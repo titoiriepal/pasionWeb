@@ -60,7 +60,7 @@ class NavController
 
 
         $router->render('nav/index', [
-            'title' => 'Pasión Viviente de Iriépal',
+            'title' => 'Pasión Viviente de Iriépal | Semana Santa en Guadalajara',
             'noticias' => $noticias,
             'galerias' => $galerias,
             'arrayMuestras' => $arrayMuestras,
@@ -68,6 +68,7 @@ class NavController
             'fotografias' => $fotografias,
             'blogs' => $blogs,
             'guia' => $guia,
+            'h1' => 'Pasión Viviente de Iriépal',
             'keywords' => 'pasiones vivientes, Iriépal, Bubillos, Iriépal pasión, pasión viviente Guadalajara, pasión viviente Hiendelaencina, Semana santa, pasion viviente teatro',
         ]);
     }
@@ -112,6 +113,7 @@ class NavController
         $router->render('nav/noticias', [
             'title' => 'Noticias Pasión Iriépal',
             'noticias' => $noticias,
+            'h1' => 'Noticias Pasión Viviente de Iriépal',
             'keywords' => 'noticias pasión viviente, noticias pasión viviente de Iriépal, noticias pasiones vivientes, noticias Iriépal, noticias Iriépal pasión, noticias pasión viviente Guadalajara, noticias pasión viviente Hiendelaencina, noticias Semana santa, noticias pasion viviente teatro',
             'paginacion' => $paginacion->paginacion()
 
@@ -143,6 +145,7 @@ class NavController
             'galerias' => $galerias,
             'arrayMuestras' => $arrayMuestras,
             'arrayCarpetas' => $arrayCarpetas,
+            'h1' => 'Galerías fotográficas de la Pasión Viviente de Iriépal',
             'keywords' => 'galerías fotográficas pasión viviente, galerías fotográficas pasión viviente de Iriépal, galerías fotográficas pasiones vivientes, galerías fotográficas Iriépal, galerías fotográficas Iriépal pasión, galerías fotográficas pasión viviente Guadalajara, galerías fotográficas pasión viviente Hiendelaencina, galerías fotográficas Semana santa, galerías fotográficas pasion viviente teatro',
             'guia' => $guia
         ]);
@@ -196,7 +199,7 @@ class NavController
             $fotografia->url = nameCarpet($galeria->usuario->nombre, $galeria->usuario->apellidos) . '/' . trim($fotografia->ruta);
             if ($fotografia->textAlt === '' || $fotografia->textAlt === ' ') {
 
-                $fotografia->textAlt = $galeria->textAlt;
+                $fotografia->textAlt = 'Representación de la Pasión Viviente de Iriépal en Guadalajara. ' . $galeria->textAlt;
             }
         }
 
@@ -206,6 +209,7 @@ class NavController
             'title' => 'Galerías fotográficas',
             'galeria' => $galeria,
             'fotografias' => $fotografias,
+            'h1' => 'Galería fotográfica de ' . $galeria->usuario->nombre . ' ' . $galeria->usuario->apellidos,
             'keywords' => 'galería fotográfica pasión viviente, galería fotográfica pasión viviente de Iriépal, galería fotográfica pasiones vivientes, galería fotográfica Iriépal, galería fotográfica Iriépal pasión, galería fotográfica pasión viviente Guadalajara, galería fotográfica pasión viviente Hiendelaencina, galería fotográfica Semana santa, galería fotográfica pasion viviente teatro',
             'paginacion' => $paginacion->paginacion()
         ]);
@@ -254,6 +258,7 @@ class NavController
         $router->render('nav/blogs', [
             'title' => 'Blogs Pasión',
             'blogs' => $blogs,
+            'h1' => 'Blogs de la Pasión Viviente de Iriépal',
             'keywords' => 'blogs pasión viviente, blogs pasión viviente de Iriépal, blogs pasiones vivientes, blogs Iriépal, blogs Iriépal pasión, blogs pasión viviente Guadalajara, blogs pasión viviente Hiendelaencina, blogs Semana santa, blogs pasion viviente teatro',
             'paginacion' => $paginacion->paginacion()
         ]);
@@ -290,6 +295,7 @@ class NavController
 
         $router->render('nav/blog', [
             'title' => 'Blog Pasión',
+            'h1' => 'Blog ' . $blog->titulo . ' de ' . $blog->usuario->nombre . ' ' . $blog->usuario->apellidos,
             'keywords' => 'blog pasión viviente, blog pasión viviente de Iriépal, blog pasiones vivientes, blog Iriépal, blog Iriépal pasión, blog pasión viviente Guadalajara, blog pasión viviente Hiendelaencina, blog Semana santa, blog pasion viviente teatro',
             'blog' => $blog,
         ]);
@@ -326,6 +332,7 @@ class NavController
 
         $router->render('nav/noticia', [
             'title' => 'Noticia Pasión',
+            'h1' => 'Noticia ' . $noticia->titulo . ' de ' . $noticia->usuario->nombre . ' ' . $noticia->usuario->apellidos,
             'keywords' => 'noticia pasión viviente, noticia pasión viviente de Iriépal, noticia pasiones vivientes, noticia Iriépal, noticia Iriépal pasión, noticia pasión viviente Guadalajara, noticia pasión viviente Hiendelaencina, noticia Semana santa, noticia pasion viviente teatro',
             'noticia' => $noticia,
         ]);
@@ -336,6 +343,7 @@ class NavController
 
         $router->render('nav/elenco', [
             'title' => 'Elenco Pasión',
+            'h1' => 'Elenco de la Pasión Viviente de Iriépal',
             'keywords' => 'elenco pasión viviente, elenco pasión viviente de Iriépal, elenco pasiones vivientes, elenco Iriépal, elenco Iriépal pasión, elenco pasión viviente Guadalajara, elenco pasión viviente Hiendelaencina, elenco Semana santa, elenco pasion viviente teatro',
         ]);
     }
@@ -344,7 +352,8 @@ class NavController
     {
 
         $router->render('nav/ediciones', [
-            'title' => 'Elenco Pasión',
+            'title' => 'Ediciones Pasión',
+            'h1' => 'Ediciones anteriores de la Pasión Viviente de Iriépal',
             'keywords' => 'ediciones pasión viviente, ediciones pasión viviente de Iriépal, ediciones pasiones vivientes, ediciones Iriépal, ediciones Iriépal pasión, ediciones pasión viviente Guadalajara, ediciones pasión viviente Hiendelaencina, ediciones Semana santa, ediciones pasion viviente teatro',
         ]);
     }

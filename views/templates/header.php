@@ -2,7 +2,7 @@
     <div class="contenedor backimg">
         <div class="title-header">
             <div class="box-header">
-                <pre><a href="/"><h1>pasion viviente de iriepal</h1></a></pre>
+                <a href="/" class="title_link"><span class="title_tip">pasion viviente de iriepal</span></a>
                 <div class="menu-bars">
                     <input type="checkbox">
                     <i class="fa-solid fa-bars menu-bars"></i>
