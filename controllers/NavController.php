@@ -45,6 +45,13 @@ class NavController
         foreach ($galerias as $galeria) {
             $galeria->usuario = Usuario::find($galeria->idUsuario);
             $muestras = Fotografias::arrayMuestras('idUsuario', $galeria->idUsuario);
+            foreach ($muestras as $muestra) {
+
+                if ($muestra->textAlt === '' || $muestra->textAlt === ' ') {
+                    $muestra->textAlt = 'Fotografía de la galería de ' . $galeria->usuario->nombre . ' ' . $galeria->usuario->apellidos . ' de la Pasión Viviente de Iriépal';
+                }
+            }
+
             $nombreCarpeta = nameCarpet($galeria->usuario->nombre, $galeria->usuario->apellidos);
             $carpetaUsuario = CARPETA_IMAGENES_INDEX . '/' . $nombreCarpeta . '/';
             $arrayMuestras[] = $muestras;

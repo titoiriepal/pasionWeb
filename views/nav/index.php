@@ -1,57 +1,55 @@
+<?php include_once __DIR__ . '/../templates/noticias.php'; ?>
 
 
-<?php  include_once __DIR__ . '/../templates/noticias.php'; ?>
-
-
-<?php  include_once __DIR__ . '/../templates/regresivo.php'; ?>
+<?php include_once __DIR__ . '/../templates/regresivo.php'; ?>
 
 <section class="seccion-galerias" id="galeria">
     <h2 class="titulo">Galerías fotográficas</h2>
-        <?php  
-            if(empty($galerias)){ ?>
-            <h3 class="center">No hay resultados disponibles</h3>
-        <?php
-            }
-        ?>
-    
+    <?php
+    if (empty($galerias)) { ?>
+        <h3 class="center">No hay resultados disponibles</h3>
+    <?php
+    }
+    ?>
+
     <div class="contenedor galerias">
 
-        
+
         <?php
-            $arrayIndex = 0;
-            foreach($galerias as $galeria):
+        $arrayIndex = 0;
+        foreach ($galerias as $galeria):
         ?>
             <a href="/galerias/galeria?galery=<?php echo $galeria->id ?>">
                 <div class="galeria">
                     <h3><?php echo $galeria->usuario->nombre . ' ' . $galeria->usuario->apellidos ?></h3>
                     <div class="slider">
                         <div class="slide-track2">
-                            <?php foreach($arrayMuestras[$arrayIndex] as $muestra):
+                            <?php foreach ($arrayMuestras[$arrayIndex] as $muestra):
                                 $ruta = $arrayCarpetas[$arrayIndex] . trim($muestra->ruta);
                             ?>
                                 <div class="slide">
-                                    <img src="<?php echo $ruta ?>" height="217" width="325" alt="" />
+                                    <img src="<?php echo $ruta ?>" height="217" width="325" alt="<?php echo $muestra->textAlt ?>" />
                                 </div>
-                            <?php    
-                            endforeach;    
+                            <?php
+                            endforeach;
                             ?>
-                            <?php foreach($arrayMuestras[$arrayIndex] as $muestra):
+                            <?php foreach ($arrayMuestras[$arrayIndex] as $muestra):
                                 $ruta = $arrayCarpetas[$arrayIndex] . trim($muestra->ruta);
                             ?>
                                 <div class="slide">
-                                    <img src="<?php echo $ruta ?>" height="217" width="325" alt="" />
+                                    <img src="<?php echo $ruta ?>" height="217" width="325" alt="<?php echo $muestra->textAlt ?>" />
                                 </div>
-                            <?php    
-                            endforeach;    
+                            <?php
+                            endforeach;
                             ?>
-                        
+
                         </div>
                     </div>
                 </div>
             </a>
         <?php
             $arrayIndex += 1;
-            endforeach;
+        endforeach;
         ?>
     </div>
 
@@ -68,8 +66,8 @@
 
         </div>
         <div class="blogs">
-            <?php foreach($blogs as $blog) { ?>
-        
+            <?php foreach ($blogs as $blog) { ?>
+
                 <div class="blog">
                     <h3><?php echo $blog->titulo; ?></h3>
                     <h4><?php echo 'De ' . $blog->usuario->nombre . ' ' . $blog->usuario->apellidos; ?></h4>
@@ -114,8 +112,8 @@
         </div>
     </div>
     <p class="center"><a href="#" class="boton">Ver Todo</a></p>
-    
-        <h3>Dirección</h3>
+
+    <h3>Dirección</h3>
     <div class="contenedor direction">
         <div class="direccion arte">
             <p class="nombre">Ana Velez</p>
@@ -151,7 +149,7 @@
         <div class="imagen-ediciones">
             <picture>
                 <source srcset="/build/img/crucificado.webp" type="image/webp">
-                <img loading="lazy" src="/build/img/crucificado.jpg" alt="Cristo Crucificado" class="imgEdiciones">
+                <img loading="lazy" src="/build/img/crucificado.jpg" alt="Cristo Crucificado en la Pasión Viviente de Iriépal" class="imgEdiciones">
             </picture>
 
         </div>
