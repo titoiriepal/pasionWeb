@@ -164,10 +164,8 @@
 
 <?php
 $script = '
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/build/js/noticias.js"></script>  
-    <script src="/build/js/regresivo.js"></script> 
-    
-   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+    <script src="/build/js/noticias.js" defer></script>  
+    <script src="/build/js/regresivo.js" defer></script> 
 ';
 ?>
